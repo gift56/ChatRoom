@@ -49,15 +49,22 @@ const Register = () => {
               <CustomizeInput
                 type="file"
                 name="file"
-                containerClass="h-full"
                 // value={values.file}
                 // onChange={handleChange}
                 className="hidden"
                 accept="image/*"
                 id="file"
               />
-              <label htmlFor="file">
-                <span></span>
+              <label
+                htmlFor="file"
+                className="flex items-center justify-start w-full gap-3 cursor-pointer"
+              >
+                <span>
+                  <FcAddImage size={30} />
+                </span>
+                <span className="text-primary text-base font-normal">
+                  Upload an avatar
+                </span>
               </label>
             </div>
             <Button
