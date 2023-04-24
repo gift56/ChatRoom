@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, CustomizeInput } from "../components";
 import { Link } from "react-router-dom";
+import { FcAddImage } from "react-icons/fc";
 
 const Register = () => {
   return (
@@ -44,6 +45,21 @@ const Register = () => {
               placeholder="Password"
               className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
+            <div className="w-full">
+              <CustomizeInput
+                type="file"
+                name="file"
+                containerClass="h-full"
+                // value={values.file}
+                // onChange={handleChange}
+                className="hidden"
+                accept="image/*"
+                id="file"
+              />
+              <label htmlFor="file">
+                <span></span>
+              </label>
+            </div>
             <Button
               // disabled={loading}
               type="submit"
