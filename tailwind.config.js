@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         bodybg: "#ecf0f1",
         darkBg: "#151221",
+        darkColor: "#222222",
       },
     },
   },

@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-[#ecf0f1];
+  @apply bg-[#ecf0f1] text-darkColor;
 }
