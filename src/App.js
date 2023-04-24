@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const App = () => {
-  return (
-    <div className="text-3xl underline">App</div>
-  )
-}
+  return <div></div>;
+};
 
-export default App
+export default App;
