@@ -1,7 +1,8 @@
 import React from "react";
+import { Routes } from "react-router-dom";
 
 const App = () => {
-  return <div>Hello world</div>;
+  return <Routes>Hello world</Routes>;
 };
 
 export default App;
