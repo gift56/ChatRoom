@@ -7,6 +7,10 @@ module.exports = {
         bodybg: "#ecf0f1",
         darkBg: "#151221",
         darkColor: "#222222",
+        primary: "#5F30F8",
+      },
+      boxShadow: {
+        smallShadow: "0px 2px 10px rgba(58, 53, 65, 0.1)",
       },
     },
   },
