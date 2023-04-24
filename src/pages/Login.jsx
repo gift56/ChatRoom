@@ -7,7 +7,7 @@ const Login = () => {
     <div className="w-full min-h-screen flex flex-col justify-center items-center">
       <div className="flex items-center justify-center flex-col gap-5">
         <h1 className="text-4xl font-bold">Chat Room</h1>
-        <div className="md:w-[450px] border flex flex-col px-5 py-4 shadow-smallShadow rounded-md gap-3 lg:h-[450px] lg:overflow-y-auto register bg-white">
+        <div className="md:w-[450px] border flex flex-col px-5 py-4 shadow-smallShadow rounded-md gap-3 lg:h-[350px] lg:overflow-y-auto register bg-white">
           <h2 className="text-xl font-bold">Welcome 👋🏻</h2>
           <p className="text-sm font-normal text-gray-400">
             Please sign-in to your account
