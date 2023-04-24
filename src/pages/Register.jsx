@@ -21,7 +21,7 @@ const Register = () => {
               // onBlur={handleBlur}
               // error={getError("email")}
               placeholder="Full Name"
-              className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray3 placeholder:text-gray3"
+              className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
             <CustomizeInput
               type="text"
@@ -31,7 +31,7 @@ const Register = () => {
               // onBlur={handleBlur}
               // error={getError("email")}
               placeholder="Email address"
-              className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray3 placeholder:text-gray3"
+              className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
             <CustomizeInput
               type="password"
@@ -42,7 +42,7 @@ const Register = () => {
               // onBlur={handleBlur}
               // error={getError("password")}
               placeholder="Password"
-              className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray3 placeholder:text-gray3"
+              className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
             <Button
               // disabled={loading}
