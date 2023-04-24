@@ -6,6 +6,7 @@ import Chats from "./Chats/Chats";
 import Chat from "./Chat/Chat";
 import Sidebar from "./Sidebar/Sidebar";
 import Search from "./Search/Search";
+import Messages from "./Messages/Messages";
 
 export {
   CustomizeInput,
@@ -16,4 +17,5 @@ export {
   Search,
   Chats,
   Chat,
+  Messages,
 };
