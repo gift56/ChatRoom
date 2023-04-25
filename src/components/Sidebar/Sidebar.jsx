@@ -7,6 +7,7 @@ const Sidebar = () => {
     <div className="w-[25%] border-r bg-white  h-screen ">
       <Navbar />
       <Search />
+      
     </div>
   );
 };
