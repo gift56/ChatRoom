@@ -25,7 +25,7 @@ const Chat = () => {
         </div>
       </div>
       <Messages />
-      <div className="h-14 w-full bg-white p-4 flex-none flex items-center justify-between">
+      <div className="h-14 w-full bg-white p-4 flex-none flex items-center justify-between gap-2">
         <CustomizeInput
           type="text"
           name="reply"
@@ -35,8 +35,11 @@ const Chat = () => {
           placeholder="Send a message..."
           className="bg-white h-[40px] w-full outline-none text-base text-gray-500 placeholder:text-gray-500"
         />
-        <div>
-          
+        <div className="flex items-center gap-3 justify-end">
+          <span></span>
+          <div>
+            
+          </div>
         </div>
       </div>
     </div>
