@@ -40,7 +40,7 @@ const Chat = () => {
         />
         <div className="flex items-center gap-3 justify-end">
           <span>
-            <IoMdAttach size={23} className="text-gray-500"/>
+            <IoMdAttach size={23} className="text-gray-500" />
           </span>
           <div>
             <CustomizeInput
@@ -56,7 +56,10 @@ const Chat = () => {
               <BiImageAdd size={23} className="text-gray-500" />
             </label>
           </div>
-          <Button text={<BiSend />} className="" />
+          <Button
+            text={<BiSend size={25} />}
+            className="bg-primary text-white"
+          />
         </div>
       </div>
     </div>
