@@ -10,17 +10,20 @@ import Button from "../Button/Button";
 const Chat = () => {
   return (
     <div className="w-[85%] flex flex-col h-screen">
-      <div className="flex w-full items-center justify-between gap-4 bg-primary text-white shadow-sm h-14 px-5 flex-none">
+      <div className="flex w-full items-center justify-between gap-4 bg-white shadow-sm h-14 px-5 flex-none">
         <h4 className="text-xl font-medium">Jane Foster</h4>
         <div className="flex items-center justify-end gap-4">
           <span>
-            <BsCameraVideoFill size={18} className="cursor-pointer" />
+            <BsCameraVideoFill
+              size={18}
+              className="text-gray-600 cursor-pointer"
+            />
           </span>
           <span>
-            <FiUserPlus size={18} className="cursor-pointer " />
+            <FiUserPlus size={18} className="text-gray-600 cursor-pointer " />
           </span>
           <span>
-            <BsThreeDots size={18} className="cursor-pointer" />
+            <BsThreeDots size={18} className="text-gray-600 cursor-pointer" />
           </span>
         </div>
       </div>
@@ -53,10 +56,7 @@ const Chat = () => {
               <BiImageAdd size={23} className="text-gray-500" />
             </label>
           </div>
-          <Button
-            text={<BiSend size={25} />}
-            className="bg-primary text-white"
-          />
+          <Button text={<BiSend size={25} />} className="bg-primary text-white" />
         </div>
       </div>
     </div>
