@@ -16,13 +16,13 @@ const Search = () => {
           className="bg-white border-b h-[40px] w-full focus:border-primary outline-none text-base text-gray-500 placeholder:text-gray-500"
         />
       </div>
-      <div className="flex items-center justify-start w-full">
+      <div className="flex items-center justify-start w-full gap-2">
         <img
           src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
           alt="user_image"
           className="w-12 h-12 rounded-full object-cover"
         />
-        <h4 className="">Jane Foster</h4>
+        <h4 className="text-base font-normal">Jane Foster</h4>
       </div>
     </div>
   );
