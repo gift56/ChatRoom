@@ -4,7 +4,9 @@ import Message from "../Message/Message";
 const Messages = () => {
   return (
     <div>
-      <Message />
+      {[0, 1, 2, 3, 4, 5].map((item, i) => (
+        <Message />
+      ))}
     </div>
   );
 };
