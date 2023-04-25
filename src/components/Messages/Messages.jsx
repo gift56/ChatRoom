@@ -3,8 +3,8 @@ import Message from "../Message/Message";
 
 const Messages = () => {
   return (
-    <div className="bg-gray-200 p-4 flex-grow">
-      {[0, 1, 2, 3, 4, 5].map((item, i) => (
+    <div className="bg-gray-200 p-4 h-[520px] overflow-y-auto overflow-x-hidden message">
+      {[0, 1, 2,].map((item, i) => (
         <Message />
       ))}
     </div>

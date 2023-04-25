@@ -5,12 +5,12 @@
 body {
   @apply bg-[#ecf0f1] text-darkColor;
 }
-.chats::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 4px;
 }
-.chats::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   @apply bg-[#c4c4c4];
 }
-.chats::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background-color: transparent;
 }
