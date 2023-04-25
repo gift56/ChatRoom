@@ -11,14 +11,14 @@ const Chat = () => {
           <span>
             <BsCameraVideoFill
               size={18}
-              className="text-gray-600 cursor-pointer dark:text-gray-300"
+              className="text-gray-600 cursor-pointer"
             />
           </span>
           <span>
-            <FiUserPlus size={18} className="text-gray-600 cursor-pointer dark:text-gray-300" />
+            <FiUserPlus size={18} className="text-gray-600 cursor-pointer " />
           </span>
           <span>
-            <BsThreeDots size={18} className="text-gray-600 cursor-pointer dark:text-gray-300" />
+            <BsThreeDots size={18} className="text-gray-600 cursor-pointer" />
           </span>
         </div>
       </div>
