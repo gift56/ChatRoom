@@ -5,8 +5,8 @@ import Messages from "../Messages/Messages";
 
 const Chat = () => {
   return (
-    <div className="w-[85%]">
-      <div className="flex w-full items-center justify-between gap-4 bg-slate-300 shadow-sm h-14 px-5">
+    <div className="w-[85%] flex flex-col h-screen">
+      <div className="flex w-full items-center justify-between gap-4 bg-slate-300 shadow-sm h-14 px-5 flex-none">
         <h4 className="text-xl font-medium">Jane Foster</h4>
         <div className="flex items-center justify-end gap-4">
           <span>
@@ -24,7 +24,7 @@ const Chat = () => {
         </div>
       </div>
       <Messages />
-      <div className="h-14 w-full bg-white">Input</div>
+      <div className="h-14 w-full bg-white px-4 flex-none">Input</div>
     </div>
   );
 };

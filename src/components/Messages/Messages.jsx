@@ -3,7 +3,7 @@ import Message from "../Message/Message";
 
 const Messages = () => {
   return (
-    <div className="bg-gray-200 p-4">
+    <div className="bg-gray-200 p-4 flex-grow">
       {[0, 1, 2, 3, 4, 5].map((item, i) => (
         <Message />
       ))}
