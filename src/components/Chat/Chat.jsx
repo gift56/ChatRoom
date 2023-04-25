@@ -1,6 +1,7 @@
 import React from "react";
 import { BsCameraVideoFill, BsThreeDots } from "react-icons/bs";
 import { FiUserPlus } from "react-icons/fi";
+import Messages from "../Messages/Messages";
 
 const Chat = () => {
   return (
@@ -22,6 +23,8 @@ const Chat = () => {
           </span>
         </div>
       </div>
+      <Messages />
+      <div>Input</div>
     </div>
   );
 };

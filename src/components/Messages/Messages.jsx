@@ -3,7 +3,7 @@ import Message from "../Message/Message";
 
 const Messages = () => {
   return (
-    <div>
+    <div className="">
       {[0, 1, 2, 3, 4, 5].map((item, i) => (
         <Message />
       ))}
