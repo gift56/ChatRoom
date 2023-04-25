@@ -24,7 +24,7 @@ const Chat = () => {
         </div>
       </div>
       <Messages />
-      <div className="h-14 w-full bg-white px-4 flex-none">Input</div>
+      <div className="h-14 w-full bg-white p-4 flex-none">Input</div>
     </div>
   );
 };
