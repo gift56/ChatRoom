@@ -11,7 +11,10 @@ const Chat = () => {
   return (
     <div className="w-[85%] flex flex-col h-screen">
       <div className="flex w-full items-center justify-between gap-4 bg-white shadow-sm h-14 px-5 flex-none">
-        <h4 className="text-xl font-medium">Jane Foster</h4>
+        <div className="flex items-center justify-start gap-2">
+          <img src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" className="w-10 h-10 rounded-full object-cover border" alt="profile_pitcure" />
+          <h4 className="text-xl font-medium">Jane Foster</h4>
+        </div>
         <div className="flex items-center justify-end gap-4">
           <span>
             <BsCameraVideoFill
@@ -56,7 +59,10 @@ const Chat = () => {
               <BiImageAdd size={23} className="text-gray-500" />
             </label>
           </div>
-          <Button text={<BiSend size={25} />} className="bg-primary text-white" />
+          <Button
+            text={<BiSend size={25} />}
+            className="bg-primary text-white"
+          />
         </div>
       </div>
     </div>
