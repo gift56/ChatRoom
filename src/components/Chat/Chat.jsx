@@ -2,6 +2,7 @@ import React from "react";
 import { BsCameraVideoFill, BsThreeDots } from "react-icons/bs";
 import { FiUserPlus } from "react-icons/fi";
 import Messages from "../Messages/Messages";
+import CustomizeInput from "../inputs/CustomizeInput";
 
 const Chat = () => {
   return (
@@ -24,7 +25,20 @@ const Chat = () => {
         </div>
       </div>
       <Messages />
-      <div className="h-14 w-full bg-white p-4 flex-none">Input</div>
+      <div className="h-14 w-full bg-white p-4 flex-none flex items-center justify-between">
+        <CustomizeInput
+          type="text"
+          name="reply"
+          // value={values.reply}
+          // onChange={handleChange}
+          // onBlur={handleBlur}
+          placeholder="Send a message..."
+          className="bg-white h-[40px] w-full outline-none text-base text-gray-500 placeholder:text-gray-500"
+        />
+        <div>
+          
+        </div>
+      </div>
     </div>
   );
 };
