@@ -6,9 +6,9 @@ const Navbar = () => {
   return (
     <div className="w-full h-[70px] flex items-center justify-between px-4 sticky top-0">
       <h1 className="text-xl font-bold select-none">Chat Room</h1>
-      <div className="flex items-center justify-end gap-2">
-        <div className="flex items-center gap-2">
-          <img src="" alt="" />
+      <div className="flex items-center justify-end">
+        <div className="flex items-center gap-1">
+          <img src="" alt="" className="w-6 h-6 rounded-full object-contain border" />
           <span>Gifted world</span>
         </div>
         <Button
