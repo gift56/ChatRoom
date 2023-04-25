@@ -16,7 +16,7 @@ const Search = () => {
           className="bg-white h-[40px] w-full focus:border-primary outline-none text-base text-gray-500 placeholder:text-gray-500"
         />
       </div>
-      <div className="flex items-center justify-start w-full gap-2 hover:bg-gray-300 px-4 p-2 cursor-pointer">
+      <div className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300">
         <img
           src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
           alt="user_image"
