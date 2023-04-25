@@ -40,7 +40,7 @@ const Chat = () => {
         />
         <div className="flex items-center gap-3 justify-end">
           <span>
-            <IoMdAttach />
+            <IoMdAttach size={23} className="text-gray-500"/>
           </span>
           <div>
             <CustomizeInput
@@ -53,7 +53,7 @@ const Chat = () => {
               id="file"
             />
             <label htmlFor="file" className="cursor-pointer">
-              <BiImageAdd />
+              <BiImageAdd size={23} className="text-gray-500" />
             </label>
           </div>
           <Button text={<BiSend />} className="" />
