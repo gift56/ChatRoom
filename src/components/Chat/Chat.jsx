@@ -1,8 +1,11 @@
 import React from "react";
 import { BsCameraVideoFill, BsThreeDots } from "react-icons/bs";
 import { FiUserPlus } from "react-icons/fi";
+import { BiImageAdd, BiSend } from "react-icons/bi";
+import { IoMdAttach } from "react-icons/io";
 import Messages from "../Messages/Messages";
 import CustomizeInput from "../inputs/CustomizeInput";
+import Button from "../Button/Button";
 
 const Chat = () => {
   return (
@@ -36,10 +39,24 @@ const Chat = () => {
           className="bg-white h-[40px] w-full outline-none text-base text-gray-500 placeholder:text-gray-500"
         />
         <div className="flex items-center gap-3 justify-end">
-          <span></span>
+          <span>
+            <IoMdAttach />
+          </span>
           <div>
-            
+            <CustomizeInput
+              type="file"
+              name="file"
+              // value={values.file}
+              // onChange={handleChange}
+              className="hidden"
+              accept="image/*"
+              id="file"
+            />
+            <label htmlFor="file" className="cursor-pointer">
+              <BiImageAdd />
+            </label>
           </div>
+          <Button text={<BiSend />} className="" />
         </div>
       </div>
     </div>
