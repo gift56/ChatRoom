@@ -18,6 +18,7 @@ const Message = () => {
           className="object-cover border"
         />
         <span>just now</span>
+        
       </div>
     </div>
   );
