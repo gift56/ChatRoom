@@ -9,7 +9,7 @@ const Chats = ({ setOpenChat }) => {
           onClick={() => setOpenChat(true)}
           className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300"
         >
-          <div className="w-[20%]">
+          <div className="lg:w-[20%]">
             <img
               src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
               alt="user_image"
