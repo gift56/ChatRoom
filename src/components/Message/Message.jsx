@@ -13,13 +13,13 @@ const Message = ({ chat, id }) => {
       </div>
       <div className={`flex flex-col gap-1 relative max-w-[50%]`}>
         <div
-          className={`w-full bg-red-400 p-4 flex flex-col gap-2  ${
+          className={`w-full p-4 flex flex-col gap-2  ${
             owner
-              ? "rounded-tr-xl rounded-bl-xl rounded-br-xl"
+              ? "rounded-tr-xl rounded-bl-xl rounded-br-xl bg-white/70"
               : "rounded-tl-xl rounded-bl-xl rounded-br-xl items-end justify-end"
           }`}
         >
-          <p className="">Hello my na is john...</p>
+          <p className="w-full">Hello my na is john...</p>
           <div className="w-full flex items-center gap-1 flex-wrap">
             <img
               src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
