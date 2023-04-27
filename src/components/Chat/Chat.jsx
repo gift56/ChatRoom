@@ -19,14 +19,14 @@ const Chat = () => {
           <span>
             <BsCameraVideoFill
               size={18}
-              className="text-gray-600 cursor-pointer"
+              className="text-gray-600 cursor-pointer hover:text-primary transition-all duration-300"
             />
           </span>
           <span>
-            <FiUserPlus size={18} className="text-gray-600 cursor-pointer " />
+            <FiUserPlus size={18} className="text-gray-600 cursor-pointer hover:text-primary transition-all duration-300" />
           </span>
           <span>
-            <BsThreeDots size={18} className="text-gray-600 cursor-pointer" />
+            <BsThreeDots size={18} className="text-gray-600 cursor-pointer hover:text-primary transition-all duration-300" />
           </span>
         </div>
       </div>
