@@ -10,7 +10,7 @@ const Message = () => {
           className="w-8 h-8 rounded-full object-cover border"
         />
       </div>
-      <div>
+      <div className={`flex flex-col`}>
         <p>Hello my na is john...</p>
         <img
           src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
@@ -18,7 +18,6 @@ const Message = () => {
           className="object-cover border"
         />
         <span>just now</span>
-        
       </div>
     </div>
   );
