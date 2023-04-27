@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Message = ({ chat, id }) => {
-  const [owner, setOwner] = useState(true);
+  const [owner, setOwner] = useState(false);
   return (
     <div className={`flex gap-5 ${owner ? "flex-row" : "flex-row-reverse"}`}>
       <div>
@@ -16,7 +16,7 @@ const Message = ({ chat, id }) => {
           className={`w-full p-4 flex flex-col gap-2  ${
             owner
               ? "rounded-tr-xl rounded-bl-xl rounded-br-xl bg-white/70"
-              : "rounded-tl-xl rounded-bl-xl rounded-br-xl items-end justify-end"
+              : "rounded-tl-xl rounded-bl-xl rounded-br-xl items-end justify-end bg-primary text-white"
           }`}
         >
           <p className="w-full">Hello my na is john...</p>
