@@ -7,13 +7,24 @@ import Messages from "../Messages/Messages";
 import CustomizeInput from "../inputs/CustomizeInput";
 import Button from "../Button/Button";
 
-const Chat = () => {
+const Chat = ({ show, setShow }) => {
   return (
-    <div className="w-[85%] hidden flex-col h-screen">
+    <div
+      className={`lg:w-[85%] flex flex-col h-screen absolute top-0 w-full lg:relative lg:right-0 ${
+        show ? "right-0" : "right-[-100%]"
+      }`}
+    >
       <div className="flex w-full items-center justify-between gap-4 bg-white shadow-sm h-14 px-5 flex-none">
         <div className="flex items-center justify-start gap-2">
-          <img src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" className="w-10 h-10 rounded-full object-cover border" alt="profile_pitcure" />
-          <h4 className="text-xl font-medium">Jane Foster</h4>
+          <span>
+            <MdArrowBack />
+          </span>
+          <img
+            src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+            className="w-10 h-10 rounded-full object-cover border"
+            alt="profile_pitcure"
+          />
+          <h4 className="md:text-xl text-base font-medium">Jane Foster</h4>
         </div>
         <div className="flex items-center justify-end gap-4">
           <span>
@@ -23,10 +34,16 @@ const Chat = () => {
             />
           </span>
           <span>
-            <FiUserPlus size={18} className="text-gray-600 cursor-pointer hover:text-primary transition-all duration-300" />
+            <FiUserPlus
+              size={18}
+              className="text-gray-600 cursor-pointer hover:text-primary transition-all duration-300"
+            />
           </span>
           <span>
-            <BsThreeDots size={18} className="text-gray-600 cursor-pointer hover:text-primary transition-all duration-300" />
+            <BsThreeDots
+              size={18}
+              className="text-gray-600 cursor-pointer hover:text-primary transition-all duration-300"
+            />
           </span>
         </div>
       </div>

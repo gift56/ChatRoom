@@ -1,11 +1,12 @@
 import React from "react";
 
-const Chats = () => {
+const Chats = ({ setOpenChat }) => {
   return (
     <div className="w-full h-[450px] overflow-y-auto overflow-x-hidden chats">
-      {[0, 1, 2, 3, 4,].map((item, i) => (
+      {[0, 1, 2, 3, 4].map((item, i) => (
         <div
           key={i}
+          onClick={() => setOpenChat(true)}
           className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300"
         >
           <div className="w-[20%]">
