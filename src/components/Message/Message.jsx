@@ -7,17 +7,17 @@ const Message = () => {
         <img
           src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
           alt="user_image"
-          className="w-8 h-8 rounded-full object-cover border"
+          className="w-10 h-10 rounded-full object-cover border"
         />
       </div>
-      <div className={`flex flex-col gap-3 relative max-w-[80%]`}>
-        <div>
-        <p className="bg-red-400">Hello my na is john...</p>
-        <img
-          src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          alt="posted_image"
-          className="object-cover border w-20 h-20 rounded-md"
-        />
+      <div className={`flex flex-col gap-1 relative max-w-[80%]`}>
+        <div className="w-full bg-red-400 p-4 flex flex-col gap-2">
+          <p className="">Hello my na is john...</p>
+          <img
+            src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+            alt="posted_image"
+            className="object-cover border w-20 h-20 rounded-md"
+          />
         </div>
         <span>just now</span>
       </div>
