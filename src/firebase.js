@@ -1,13 +1,13 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBmsrrFmCjjyA3KmRmIx9BEDYgYEi3DDAI",
-  authDomain: "chatroom-61dca.firebaseapp.com",
-  projectId: "chatroom-61dca",
-  storageBucket: "chatroom-61dca.appspot.com",
-  messagingSenderId: "1033465005775",
-  appId: "1:1033465005775:web:87a3c472365fd6cf7699ba",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
