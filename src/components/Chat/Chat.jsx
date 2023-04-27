@@ -17,8 +17,8 @@ const Chat = ({ show, setShow }) => {
     >
       <div className="flex w-full items-center justify-between gap-4 bg-white shadow-sm h-14 px-5 flex-none">
         <div className="flex items-center justify-start gap-2">
-          <span>
-            <MdArrowBack />
+          <span onClick={() => setShow(false)}>
+            <MdArrowBack className="text-gray-500" size={20} />
           </span>
           <img
             src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
