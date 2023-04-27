@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Message = () => {
+const Message = ({ chat, id }) => {
+  const [owner, setOwner] = useState(true);
   return (
-    <div className="flex gap-5">
+    <div className={`flex gap-5 ${owner ? "flex-row" : "flex-row-reverse"}`}>
       <div>
         <img
           src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
@@ -11,7 +12,11 @@ const Message = () => {
         />
       </div>
       <div className={`flex flex-col gap-1 relative max-w-[80%]`}>
-        <div className="w-full bg-red-400 p-4 flex flex-col gap-2">
+        <div
+          className={`w-full bg-red-400 p-4 flex flex-col gap-2  ${
+            owner ? "rounded-tr-xl rounded-bl-xl rounded-br-xl" : "rounded-tl-xl rounded-bl-xl rounded-br-xl"
+          }`}
+        >
           <p className="">Hello my na is john...</p>
           <img
             src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
@@ -19,7 +24,7 @@ const Message = () => {
             className="object-cover border w-20 h-20 rounded-md"
           />
         </div>
-        <span>just now</span>
+        <span className="text-xs text-gray-500">just now</span>
       </div>
     </div>
   );
