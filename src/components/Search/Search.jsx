@@ -45,7 +45,10 @@ const Search = () => {
           placeholder="Search users"
           className="bg-white h-[40px] w-full focus:border-primary outline-none text-base text-gray-500 placeholder:text-gray-500"
         />
-        <span onClick={() => handleSearch()} className="cursor-pointer">
+        <span
+          onClick={() => handleSearch()}
+          className="cursor-pointer text-gray-500"
+        >
           <FiSearch size={18} />
         </span>
       </div>
