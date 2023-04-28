@@ -22,8 +22,7 @@ const Register = () => {
     //   formData.append(value, payload[value]);
     // }
     // formData.append("file", payload.file);
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, payload.email, payload.password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
