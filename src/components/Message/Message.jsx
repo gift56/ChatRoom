@@ -7,10 +7,13 @@ const Message = ({ chat }) => {
   const { data } = UserChat();
 
   const ref = useRef();
-  useEffect(() => {}, []);
+  useEffect(() => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  }, [chat]);
 
   return (
     <div
+      ref={ref}
       className={`flex gap-5 ${
         chat.senderId === user.uid ? "flex-row-reverse" : "flex-row"
       }`}
