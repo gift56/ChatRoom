@@ -24,15 +24,15 @@ const Navbar = () => {
   };
   return (
     <div className="w-full h-[70px] flex items-center justify-between px-4 sticky top-0">
-      <h1 className="text-xl font-bold select-none">Chat Room</h1>
+      <h1 className="text-xl font-bold select-none">Chat Space</h1>
       <div className="flex items-center justify-end">
         <div className="flex items-center gap-1">
           <img
-            src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-            alt="user_image"
+            src={user?.photoURL}
+            alt={user?.displayName}
             className="w-8 h-8 rounded-full object-cover border"
           />
-          <span>Gift will...</span>
+          <span>{user?.displayName}</span>
         </div>
         <Button
           onClick={handleLogout}
