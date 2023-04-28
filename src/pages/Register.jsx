@@ -36,7 +36,10 @@ const Register = () => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            await updateProfile();
+            await updateProfile(res.user, {
+              displayName: payload.full_name,
+              photoURL: downloadURL,
+            });
           });
         }
       );
