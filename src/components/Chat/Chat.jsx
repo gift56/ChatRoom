@@ -62,11 +62,14 @@ const Chat = ({ show, setShow }) => {
       });
       setLoading(false);
     }
-    await updateDoc(doc(db,"userChats",user?.uid),{
-      [data.chatId+".lastMessage"]:{
+    await updateDoc(doc(db, "userChats", user?.uid), {
+      [data.chatId + ".lastMessage"]: {
+        text: payload.reply,
+      },
+      [data.chatId+".date"]:{
         
       }
-    })
+    });
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
   };
