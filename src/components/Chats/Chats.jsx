@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 import { UserAuth } from "../../context/AuthContext";
+import { UserChat } from "../../context/ChatsContext";
 
 const Chats = ({ setOpenChat }) => {
   const [chats, setChats] = useState([]);
   const { user } = UserAuth();
+  const {} = UserChat();
 
   useEffect(() => {
     const getChats = () => {
