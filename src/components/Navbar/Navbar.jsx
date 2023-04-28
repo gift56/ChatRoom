@@ -32,7 +32,7 @@ const Navbar = () => {
             alt={user?.displayName}
             className="w-8 h-8 rounded-full object-cover border"
           />
-          <span>{user?.displayName}</span>
+          <span className="truncate">{user?.displayName}</span>
         </div>
         <Button
           onClick={handleLogout}

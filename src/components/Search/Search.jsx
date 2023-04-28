@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import CustomizeInput from "../inputs/CustomizeInput";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { toast } from "react-toastify";
 import { FiSearch } from "react-icons/fi";
 
 const Search = () => {
-  const [user, setUser] = useState(null);
   const [username, setUsername] = useState("");
+  const [user, setUser] = useState(null);
 
   const handleSearch = async () => {
     const q = query(
@@ -16,9 +16,8 @@ const Search = () => {
     );
     try {
       const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        setUser(doc.data());
-        console.log(doc);
+    querySnapshot.forEach((doc) => {
+        console.log(doc.id, " => ", doc.data());
       });
       setUsername("");
     } catch (error) {
