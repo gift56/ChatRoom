@@ -10,6 +10,7 @@ const CustomizeInput = ({
   inpuClassName,
   error,
   onChange,
+  onKeyDown,
   onBlur,
   accept,
   containerClass,
@@ -29,6 +30,7 @@ const CustomizeInput = ({
         onBlur={onBlur}
         onChange={onChange}
         accept={accept}
+        onKeyDown={onKeyDown}
       />
       {error ? <p className="text-xs text-red-600">{error}</p> : null}
     </div>

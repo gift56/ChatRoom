@@ -1,58 +1,47 @@
 import React, { useState } from "react";
 import CustomizeInput from "../inputs/CustomizeInput";
-import { useFormik } from "formik";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase";
 import { toast } from "react-toastify";
 
 const Search = () => {
   const [user, setUser] = useState(null);
-  const initialValues = {
-    searchusername: "",
-  };
+  const [username, setUsername] = useState("");
 
-  const onSubmit = async (payload, actions) => {
+  const handleSearch = async () => {
     const q = query(
       collection(db, "users"),
-      where("displayName", "==", payload.searchusername)
+      where("displayName", "==", username)
     );
     try {
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         setUser(doc.data());
+        console.log(doc);
       });
+      setUsername("");
     } catch (error) {
+      console.log(error);
       toast.error("User Not Found!", {
         position: "top-left",
         toastId: 1,
         autoClose: 1000,
       });
     }
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    actions.resetForm();
   };
 
-  const { handleSubmit, handleChange, values, handleBlur } = useFormik({
-    initialValues,
-    onSubmit,
-  });
   return (
     <div className="w-full border-b">
-      <form
-        onSubmit={handleSubmit}
-        onKeyUp={(e) => e.keyCode === 13 && handleSubmit(e)}
-        className="w-full px-4"
-      >
+      <div className="w-full px-4">
         <CustomizeInput
           type="text"
-          name="searchusername"
-          value={values.searchusername}
-          onChange={handleChange}
-          onBlur={handleBlur}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           placeholder="Search users"
           className="bg-white h-[40px] w-full focus:border-primary outline-none text-base text-gray-500 placeholder:text-gray-500"
         />
-      </form>
+        <span onClick={() => handleSearch()}>submit</span>
+      </div>
       {user && (
         <div className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300">
           <img
