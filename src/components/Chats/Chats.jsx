@@ -1,8 +1,10 @@
-import React,{ useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Chats = ({ setOpenChat }) => {
   const [chats, setChats] = useState([]);
-  
+
+  useEffect(() => {}, []);
+
   return (
     <div className="w-full h-[450px] overflow-y-auto overflow-x-hidden chats">
       {[0, 1, 2, 3, 4].map((item, i) => (
