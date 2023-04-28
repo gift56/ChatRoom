@@ -14,11 +14,12 @@ const Register = () => {
   };
 
   const onSubmit = async (payload, actions) => {
-    const formData = new FormData();
-    for (let value in payload) {
-      formData.append(value, payload[value]);
-    }
-    formData.append("file", payload.file);
+    console.log(payload)
+    // const formData = new FormData();
+    // for (let value in payload) {
+    //   formData.append(value, payload[value]);
+    // }
+    // formData.append("file", payload.file);
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
   };
