@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 import { VscSignOut } from "react-icons/vsc";
 import { UserAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { logOut } = UserAuth();
@@ -12,6 +13,10 @@ const Navbar = () => {
     try {
       await logOut();
       navigate("/");
+      toast.success("Logged out Successfully!", {
+        toastId: 1,
+        autoClose: 1500,
+      });
     } catch (error) {
       console.log(error);
     }
