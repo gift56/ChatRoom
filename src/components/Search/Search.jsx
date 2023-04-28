@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import CustomizeInput from "../inputs/CustomizeInput";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  setDoc,
+  doc,
+} from "firebase/firestore";
 import { db } from "../../firebase";
 import { toast } from "react-toastify";
 import { FiSearch } from "react-icons/fi";
@@ -44,12 +51,11 @@ const Search = () => {
         : searchedUser?.uid + user?.uid;
     try {
       const res = await getDocs(db, "chats", combinedId);
-      if(!res.exist()){
+      if (!res.exist()) {
         //creating chats collections
+        await setDoc(doc, (db, "chats", combinedId), { messages: [] });
       }
-    } catch (error) {
-
-    }
+    } catch (error) {}
   };
 
   return (
