@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, CustomizeInput } from "../components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcAddImage } from "react-icons/fc";
 import { useFormik } from "formik";
 import { registerSchema } from "../schema";
@@ -11,6 +11,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 
 const Register = () => {
+  const navigate = useNavigate();
   const initialValues = {
     full_name: "",
     email: "",
@@ -47,6 +48,7 @@ const Register = () => {
               photoURL: downloadURL,
             });
             await setDoc(doc(db, "userChats", res.user.uid), {});
+            navigate("/chatspace")
           });
         }
       );
