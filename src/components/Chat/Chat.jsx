@@ -8,9 +8,51 @@ import Messages from "../Messages/Messages";
 import CustomizeInput from "../inputs/CustomizeInput";
 import Button from "../Button/Button";
 import { UserChat } from "../../context/ChatsContext";
+import { UserAuth } from "../../context/AuthContext";
+import { useFormik } from "formik";
+import * as yup from "yup";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const Chat = ({ show, setShow }) => {
+  const initialValues = {
+    reply: "",
+    img: null,
+  };
+  const validationSchema = yup.object().shape({
+    reply: yup.string().required("required"),
+  });
+
+  const onSubmit = async (payload, actions) => {
+    console.log(payload);
+    if (payload.img) {
+    } else {
+      await updateDoc(doc(db, "chtas", data.chatId), {
+        messages: arrayUnion({
+          
+        }),
+      });
+    }
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    actions.resetForm();
+  };
+
+  const { handleSubmit, handleChange, handleBlur, values, setFieldValue } =
+    useFormik({
+      initialValues,
+      validationSchema,
+      onSubmit,
+    });
+  function handleImageChange(event) {
+    const file = event.currentTarget.files[0];
+    if (file && !file.type.startsWith("image/")) {
+      setFieldValue("img", null);
+      return;
+    }
+    setFieldValue("img", file);
+  }
   const { data } = UserChat();
+  const { user } = UserAuth();
 
   return (
     <div
@@ -54,13 +96,16 @@ const Chat = ({ show, setShow }) => {
         </div>
       </div>
       <Messages />
-      <div className="h-14 w-full bg-white p-4 flex-none flex items-center justify-between gap-2">
+      <form
+        onSubmit={handleSubmit}
+        className="h-14 w-full bg-white p-4 flex-none flex items-center justify-between gap-2"
+      >
         <CustomizeInput
           type="text"
           name="reply"
-          // value={values.reply}
-          // onChange={handleChange}
-          // onBlur={handleBlur}
+          value={values.reply}
+          onChange={handleChange}
+          onBlur={handleBlur}
           placeholder="Send a message..."
           className="bg-white h-[40px] w-full outline-none text-base text-gray-500 placeholder:text-gray-500"
         />
@@ -71,9 +116,8 @@ const Chat = ({ show, setShow }) => {
           <div>
             <CustomizeInput
               type="file"
-              name="file"
-              // value={values.file}
-              // onChange={handleChange}
+              name="img"
+              onChange={handleImageChange}
               className="hidden"
               accept="image/*"
               id="file"
@@ -87,7 +131,7 @@ const Chat = ({ show, setShow }) => {
             className="bg-primary text-white"
           />
         </div>
-      </div>
+      </form>
     </div>
   );
 };
