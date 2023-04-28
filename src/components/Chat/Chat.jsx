@@ -7,8 +7,11 @@ import { MdArrowBack } from "react-icons/md";
 import Messages from "../Messages/Messages";
 import CustomizeInput from "../inputs/CustomizeInput";
 import Button from "../Button/Button";
+import { UserChat } from "../../context/ChatsContext";
 
 const Chat = ({ show, setShow }) => {
+  const { data } = UserChat();
+
   return (
     <div
       className={`lg:w-[85%] flex flex-col h-screen absolute top-0 w-full lg:relative lg:right-0 ${
@@ -21,11 +24,13 @@ const Chat = ({ show, setShow }) => {
             <MdArrowBack className="text-gray-500" size={20} />
           </span>
           <img
-            src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+            src={data?.user?.photoURL}
             className="w-10 h-10 rounded-full object-cover border"
             alt="profile_pitcure"
           />
-          <h4 className="md:text-xl text-base font-medium">Jane Foster</h4>
+          <h4 className="md:text-xl text-base font-medium">
+            {data?.user?.displayName}
+          </h4>
         </div>
         <div className="flex items-center justify-end gap-4">
           <span>
