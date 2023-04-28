@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useReducer,
+} from "react";
 import { auth } from "../firebase";
 import {
   onAuthStateChanged,
@@ -31,7 +37,13 @@ export const ChatContextProvider = ({ children }) => {
     }
   };
 
-  return <ChatContext.Provider value={{}}>{children}</ChatContext.Provider>;
+  const [state, dispatch] = useReducer(chatReducer, INITIAL_STATE);
+
+  return (
+    <ChatContext.Provider value={{ data: state, dispatch }}>
+      {children}
+    </ChatContext.Provider>
+  );
 };
 
 export const UserChat = () => {
