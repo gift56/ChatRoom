@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { FcAddImage } from "react-icons/fc";
 import { useFormik } from "formik";
 import { registerSchema } from "../schema";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 const Register = () => {
   const initialValues = {
@@ -14,12 +16,23 @@ const Register = () => {
   };
 
   const onSubmit = async (payload, actions) => {
-    console.log(payload)
+    console.log(payload);
     // const formData = new FormData();
     // for (let value in payload) {
     //   formData.append(value, payload[value]);
     // }
     // formData.append("file", payload.file);
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
   };
