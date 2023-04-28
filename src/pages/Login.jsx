@@ -5,6 +5,8 @@ import { useFormik } from "formik";
 import { loginSchema } from "../schema";
 import { toast } from "react-toastify";
 import { UserAuth } from "../context/AuthContext";
+import logo from "../assets/chat.json";
+import Lottie from "lottie-react";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -53,7 +55,9 @@ const Login = () => {
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center">
       <div className="flex items-center justify-center flex-col gap-5">
-        <h1 className="text-4xl font-bold">Chat Space</h1>
+        <div className="lg:w-[20%] w-[303px] max-w-full">
+          <Lottie animationData={logo} loop={true} />
+        </div>
         <div className="md:w-[450px] border flex flex-col px-5 py-4 shadow-smallShadow rounded-md gap-3 lg:h-[350px] lg:overflow-y-auto register bg-white">
           <h2 className="text-xl font-bold">Welcome 👋🏻</h2>
           <p className="text-sm font-normal text-gray-400">

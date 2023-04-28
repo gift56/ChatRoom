@@ -9,6 +9,8 @@ import { auth, db, storage } from "../firebase";
 import { toast } from "react-toastify";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
+import logo from "../assets/chat.json";
+import Lottie from "lottie-react";
 
 const Register = () => {
   const [loading, setLoading] = useState(false);
@@ -102,7 +104,9 @@ const Register = () => {
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center">
       <div className="flex items-center justify-center flex-col gap-5 w-full">
-        <h1 className="text-4xl font-bold">Chat Space</h1>
+        <div className="lg:w-[20%] w-[303px] max-w-full">
+          <Lottie animationData={logo} loop={true} />
+        </div>
         <div className="md:w-[450px] w-full border flex flex-col px-5 py-4 shadow-smallShadow rounded-md gap-3 lg:h-[450px] lg:overflow-y-auto register bg-white">
           <h2 className="text-xl font-bold">Welcome 👋🏻</h2>
           <p className="text-sm font-normal text-gray-400">
