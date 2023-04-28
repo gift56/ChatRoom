@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, CustomizeInput } from "../components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { loginSchema } from "../schema";
+import { toast } from "react-toastify";
+import { UserAuth } from "../context/AuthContext";
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { logIn } = UserAuth();
+
   const initialValues = {
     email: "",
     password: "",
   };
   const onSubmit = async (payload, actions) => {
-    console.log(payload)
+    setLoading(true);
+    try {
+      await logIn(payload.email, payload.password);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message, {
+        position: "bottom-right",
+        autoClose: 1000,
+        toastId: 1,
+      });
+    }
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
   };
@@ -41,7 +58,10 @@ const Login = () => {
           <p className="text-sm font-normal text-gray-400">
             Please sign-in to your account
           </p>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-2 items-start justify-start w-full">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-2 items-start justify-start w-full"
+          >
             <CustomizeInput
               type="text"
               name="email"
