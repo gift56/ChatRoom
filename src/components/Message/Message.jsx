@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { UserAuth } from "../../context/AuthContext";
+import { UserChat } from "../../context/ChatsContext";
 
 const Message = ({ chat }) => {
   const [owner, setOwner] = useState(false);
   const { user } = UserAuth();
+  const { data } = UserChat();
 
   return (
     <div className={`flex gap-5 ${owner ? "flex-row" : "flex-row-reverse"}`}>
