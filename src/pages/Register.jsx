@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FcAddImage } from "react-icons/fc";
 import { useFormik } from "formik";
 import { registerSchema } from "../schema";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage } from "../firebase";
 import { toast } from "react-toastify";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -35,8 +35,8 @@ const Register = () => {
           console.log(error);
         },
         () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log("File available at", downloadURL);
+          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+            await updateProfile();
           });
         }
       );
