@@ -41,14 +41,14 @@ const Register = () => {
               displayName: payload.full_name,
               photoURL: downloadURL,
             });
+            await setDoc(doc(db, "users", res.user.uid), {
+              full_name: payload.full_name,
+              email: payload.email,
+              photoURL: downloadURL,
+            });
           });
         }
       );
-      await setDoc(doc(db, "cities", "LA"), {
-        name: "Los Angeles",
-        state: "CA",
-        country: "USA",
-      });
     } catch (error) {
       toast.error(error.message, {
         position: "bottom-right",
