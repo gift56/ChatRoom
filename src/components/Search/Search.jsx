@@ -16,7 +16,7 @@ import { toast } from "react-toastify";
 import { FiSearch } from "react-icons/fi";
 import { UserAuth } from "../../context/AuthContext";
 
-const Search = () => {
+const Search = ({ setOpenChat }) => {
   const [username, setUsername] = useState("");
   const [searchedUser, setSearchedUser] = useState(null);
   const { user } = UserAuth();
@@ -32,6 +32,7 @@ const Search = () => {
         setSearchedUser(doc.data());
       });
       setUsername("");
+      setOpenChat(true);
     } catch (error) {
       console.log(error);
       toast.error("User Not Found!", {

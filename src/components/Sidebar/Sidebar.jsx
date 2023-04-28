@@ -7,7 +7,7 @@ const Sidebar = ({ setOpenChat }) => {
   return (
     <div className="w-full lg:w-[25%] border-r bg-white  h-screen ">
       <Navbar />
-      <Search />
+      <Search setOpenChat={setOpenChat} />
       <Chats setOpenChat={setOpenChat}/>
     </div>
   );
