@@ -21,6 +21,11 @@ const Login = () => {
       await logIn(payload.email, payload.password);
       navigate("/chatspace");
       setLoading(false);
+      toast.success("Logged In Successfully!", {
+        toastId: 1,
+        autoClose: 1500,
+        position: "bottom-right",
+      });
     } catch (error) {
       console.log(error);
       toast.error(error.message, {

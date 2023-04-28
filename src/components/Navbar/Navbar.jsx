@@ -16,6 +16,7 @@ const Navbar = () => {
       toast.success("Logged out Successfully!", {
         toastId: 1,
         autoClose: 1500,
+        position: "bottom-right",
       });
     } catch (error) {
       console.log(error);

@@ -51,6 +51,11 @@ const Register = () => {
             await setDoc(doc(db, "userChats", res.user.uid), {});
             navigate("/");
             setLoading(false);
+            toast.success("Account Created Successfully!", {
+              toastId: 1,
+              autoClose: 1500,
+              position: "bottom-right",
+            });
           });
         }
       );
