@@ -55,7 +55,7 @@ const Login = () => {
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center">
       <div className="flex items-center justify-center flex-col gap-5">
-        <div className="lg:w-[20%] w-[303px] max-w-full">
+        <div className="lg:w-[20%] w-[20%] max-w-full sticky top-0">
           <Lottie animationData={logo} loop={true} />
         </div>
         <div className="md:w-[450px] border flex flex-col px-5 py-4 shadow-smallShadow rounded-md gap-3 lg:h-[350px] lg:overflow-y-auto register bg-white">
