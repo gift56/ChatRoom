@@ -44,7 +44,12 @@ const Search = () => {
         : searchedUser?.uid + user?.uid;
     try {
       const res = await getDocs(db, "chats", combinedId);
-    } catch (error) {}
+      if(!res.exist()){
+        //creating chats collections
+      }
+    } catch (error) {
+
+    }
   };
 
   return (
