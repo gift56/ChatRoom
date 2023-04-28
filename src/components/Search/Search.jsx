@@ -16,11 +16,14 @@ const Search = () => {
       collection(db, "users"),
       where("displayName", "==", payload.searchusername)
     );
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, " => ", doc.data());
-    });
+    try {
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        setUser(doc.data());
+      });
+    } catch (error) {
+      console.log(error);
+    }
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
   };
@@ -46,14 +49,16 @@ const Search = () => {
           className="bg-white h-[40px] w-full focus:border-primary outline-none text-base text-gray-500 placeholder:text-gray-500"
         />
       </form>
-      <div className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300">
-        <img
-          src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          alt="user_image"
-          className="w-12 h-12 rounded-full object-cover"
-        />
-        <h4 className="text-base font-normal">Jane Foster</h4>
-      </div>
+      {user && (
+        <div className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300">
+          <img
+            src={user?.photoURL}
+            alt={user?.displayName}
+            className="w-12 h-12 rounded-full object-cover"
+          />
+          <h4 className="text-base font-normal">{user?.displayName}</h4>
+        </div>
+      )}
     </div>
   );
 };
