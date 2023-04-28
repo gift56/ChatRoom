@@ -16,8 +16,8 @@ const Search = () => {
     );
     try {
       const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data());
+      querySnapshot.forEach((doc) => {
+        setUser(doc.data());
       });
       setUsername("");
     } catch (error) {
@@ -30,6 +30,10 @@ const Search = () => {
     }
   };
 
+  const handleKey = (e) => {
+    e.code == "Enter" && handleSearch();
+  };
+
   return (
     <div className="w-full border-b">
       <div className="w-full px-4 flex items-center">
@@ -37,6 +41,7 @@ const Search = () => {
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          onKeyDown={handleKey}
           placeholder="Search users"
           className="bg-white h-[40px] w-full focus:border-primary outline-none text-base text-gray-500 placeholder:text-gray-500"
         />
