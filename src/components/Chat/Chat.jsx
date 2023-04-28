@@ -109,7 +109,7 @@ const Chat = ({ show, setShow }) => {
   if (!data?.user?.photoURL)
     return (
       <div
-        className={`w-full flex lg:h-screen items-center justify-center flex-col gap-4 fixed top-[130px] h-[90vh] bg-[#ecf0f1] lg:relative lg:top-0`}
+        className={`w-full flex lg:h-screen items-center justify-center flex-col gap-4 fixed top-[110px] h-[90vh] bg-[#ecf0f1] lg:relative lg:top-0`}
       >
         <div className="w-[35%] max-w-full sticky top-0">
           <Lottie animationData={logo} loop={true} />
