@@ -42,7 +42,8 @@ const Register = () => {
               photoURL: downloadURL,
             });
             await setDoc(doc(db, "users", res.user.uid), {
-              full_name: payload.full_name,
+              uid: res.user.uid,
+              displayName: payload.full_name,
               email: payload.email,
               photoURL: downloadURL,
             });
