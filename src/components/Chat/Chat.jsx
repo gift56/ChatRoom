@@ -11,7 +11,13 @@ import { UserChat } from "../../context/ChatsContext";
 import { UserAuth } from "../../context/AuthContext";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { Timestamp, arrayUnion, doc, updateDoc } from "firebase/firestore";
+import {
+  Timestamp,
+  arrayUnion,
+  doc,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
 import { db, storage } from "../../firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
@@ -66,9 +72,7 @@ const Chat = ({ show, setShow }) => {
       [data.chatId + ".lastMessage"]: {
         text: payload.reply,
       },
-      [data.chatId+".date"]:{
-        
-      }
+      [data.chatId + ".date"]: serverTimestamp(),
     });
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
