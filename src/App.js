@@ -3,10 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Homepage from "./pages/Homepage";
-import { AuthContextProvider, UserAuth } from "./context/AuthContext";
+import { AuthContextProvider } from "./context/AuthContext";
 
 const App = () => {
-  const { user } = UserAuth();
   return (
     <AuthContextProvider>
       <Routes>
