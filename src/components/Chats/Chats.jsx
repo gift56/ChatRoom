@@ -9,9 +9,12 @@ const Chats = ({ setOpenChat }) => {
 
   useEffect(() => {
     const unsub = onSnapshot(doc(db, "userChats", user.uid), (doc) => {
-      console.log("Current data: ", doc.data());
+      setChats(doc.data());
     });
-  }, []);
+    return () => {
+      unsub();
+    };
+  }, [user.uid]);
 
   return (
     <div className="w-full h-[450px] overflow-y-auto overflow-x-hidden chats">
