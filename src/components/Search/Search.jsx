@@ -7,6 +7,9 @@ import {
   getDocs,
   setDoc,
   doc,
+  updateDoc,
+  serverTimestamp,
+  getDoc,
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import { toast } from "react-toastify";
@@ -50,13 +53,34 @@ const Search = () => {
         ? user?.uid + searchedUser?.uid
         : searchedUser?.uid + user?.uid;
     try {
-      const res = await getDocs(db, "chats", combinedId);
-      if (!res.exist()) {
+      const res = await getDoc(doc(db, "chats", combinedId));
+      if (!res.exists()) {
         //creating chats collections
-        await setDoc(doc, (db, "chats", combinedId), { messages: [] });
-        
+        await setDoc(doc(db, "chats", combinedId), { messages: [] });
+
+        //user chats
+        await updateDoc(doc(db, "userChats", user.uid), {
+          [combinedId + ".userInfo"]: {
+            uid: searchedUser.uid,
+            displayName: searchedUser.displayName,
+            photoURL: searchedUser.photoURL,
+          },
+          [combinedId + ".date"]: serverTimestamp(),
+        });
+
+        await updateDoc(doc(db, "userChats", searchedUser.uid), {
+          [combinedId + ".userInfo"]: {
+            uid: user.uid,
+            displayName: user.displayName,
+            photoURL: user.photoURL,
+          },
+          [combinedId + ".date"]: serverTimestamp(),
+        });
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
+    setSearchedUser(null);
   };
 
   return (
