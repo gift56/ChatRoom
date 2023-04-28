@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { UserAuth } from "../../context/AuthContext";
 import { UserChat } from "../../context/ChatsContext";
 
 const Message = ({ chat }) => {
   const { user } = UserAuth();
   const { data } = UserChat();
+
+  const ref = useRef();
+  useEffect(() => {}, []);
 
   return (
     <div
