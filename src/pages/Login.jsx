@@ -19,7 +19,8 @@ const Login = () => {
     setLoading(true);
     try {
       await logIn(payload.email, payload.password);
-      navigate("/");
+      navigate("/chatspace");
+      setLoading(false);
     } catch (error) {
       console.log(error);
       toast.error(error.message, {
@@ -27,24 +28,19 @@ const Login = () => {
         autoClose: 1000,
         toastId: 1,
       });
+      navigate("/");
+      setLoading(false);
     }
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
   };
 
-  const {
-    handleSubmit,
-    handleChange,
-    handleBlur,
-    values,
-    errors,
-    touched,
-    isSubmitting,
-  } = useFormik({
-    initialValues,
-    validationSchema: loginSchema,
-    onSubmit,
-  });
+  const { handleSubmit, handleChange, handleBlur, values, errors, touched } =
+    useFormik({
+      initialValues,
+      validationSchema: loginSchema,
+      onSubmit,
+    });
 
   const getError = (key) => {
     return touched[key] && errors[key];
@@ -84,7 +80,7 @@ const Login = () => {
               className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
             <Button
-              disabled={isSubmitting}
+              disabled={loading}
               type="submit"
               text="Create Account"
               className="mt-4 w-full h-[44px] bg-primary text-white disabled:bg-primary/70"
