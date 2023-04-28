@@ -13,8 +13,10 @@ const Messages = () => {
       doc.exists() && setMessages(doc.data());
     });
 
-    return () => {};
-  }, []);
+    return () => {
+      unsub();
+    };
+  }, [data.chatId]);
 
   return (
     <div className="bg-gray-200 p-4 h-[520px] overflow-y-auto overflow-x-hidden message flex flex-col gap-3">
