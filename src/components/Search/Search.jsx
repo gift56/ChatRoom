@@ -3,6 +3,7 @@ import CustomizeInput from "../inputs/CustomizeInput";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase";
 import { toast } from "react-toastify";
+import { FiSearch } from "react-icons/fi";
 
 const Search = () => {
   const [user, setUser] = useState(null);
@@ -32,7 +33,7 @@ const Search = () => {
 
   return (
     <div className="w-full border-b">
-      <div className="w-full px-4">
+      <div className="w-full px-4 flex items-center">
         <CustomizeInput
           type="text"
           value={username}
@@ -40,7 +41,9 @@ const Search = () => {
           placeholder="Search users"
           className="bg-white h-[40px] w-full focus:border-primary outline-none text-base text-gray-500 placeholder:text-gray-500"
         />
-        <span onClick={() => handleSearch()}>submit</span>
+        <span onClick={() => handleSearch()} className="cursor-pointer">
+          <FiSearch size={18} />
+        </span>
       </div>
       {user && (
         <div className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300">
