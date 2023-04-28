@@ -29,7 +29,6 @@ const Chat = ({ show, setShow }) => {
     console.log(payload);
     if (payload.img) {
       const storageRef = ref(storage, uuid());
-
       const uploadTask = uploadBytesResumable(storageRef, payload.img);
       uploadTask.on(
         (error) => {
@@ -37,12 +36,14 @@ const Chat = ({ show, setShow }) => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            messages: arrayUnion({
-              id: uuid(),
-              text: payload.reply,
-              senderId: user.uid,
-              date: Timestamp.now(),
-              img: downloadURL,
+            await updateDoc(doc(db, "chats", data.chatId), {
+              messages: arrayUnion({
+                id: uuid(),
+                text: payload.reply,
+                senderId: user.uid,
+                date: Timestamp.now(),
+                img: downloadURL,
+              }),
             });
           });
         }
