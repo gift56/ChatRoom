@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, CustomizeInput } from "../components";
 import { Link, useNavigate } from "react-router-dom";
 import { FcAddImage } from "react-icons/fc";
@@ -11,6 +11,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 
 const Register = () => {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const initialValues = {
     full_name: "",
@@ -20,7 +21,7 @@ const Register = () => {
   };
 
   const onSubmit = async (payload, actions) => {
-    console.log(payload);
+    setLoading(true);
     try {
       const res = await createUserWithEmailAndPassword(
         auth,
@@ -49,6 +50,7 @@ const Register = () => {
             });
             await setDoc(doc(db, "userChats", res.user.uid), {});
             navigate("/chatspace");
+            setLoading(false);
           });
         }
       );
@@ -58,6 +60,8 @@ const Register = () => {
         autoClose: 1000,
         toastId: 1,
       });
+      navigate("/register");
+      setLoading(false);
     }
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -71,7 +75,6 @@ const Register = () => {
     values,
     errors,
     touched,
-    isSubmitting,
     setFieldValue,
   } = useFormik({
     initialValues,
@@ -157,7 +160,7 @@ const Register = () => {
               </label>
             </div>
             <Button
-              disabled={isSubmitting}
+              disabled={loading}
               type="submit"
               text="Create Account"
               className="mt-4 w-full h-[44px] bg-primary text-white disabled:bg-primary/70 disabled:cursor-not-allowed"
