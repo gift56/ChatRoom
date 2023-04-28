@@ -11,9 +11,10 @@ import { UserChat } from "../../context/ChatsContext";
 import { UserAuth } from "../../context/AuthContext";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { arrayUnion, doc, updateDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+import { Timestamp, arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { db, storage } from "../../firebase";
 import { v4 as uuid } from "uuid";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const Chat = ({ show, setShow }) => {
   const initialValues = {
@@ -27,12 +28,32 @@ const Chat = ({ show, setShow }) => {
   const onSubmit = async (payload, actions) => {
     console.log(payload);
     if (payload.img) {
+      const storageRef = ref(storage, uuid());
+
+      const uploadTask = uploadBytesResumable(storageRef, payload.img);
+      uploadTask.on(
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+            messages: arrayUnion({
+              id: uuid(),
+              text: payload.reply,
+              senderId: user.uid,
+              date: Timestamp.now(),
+              img: downloadURL,
+            });
+          });
+        }
+      );
     } else {
-      await updateDoc(doc(db, "chtas", data.chatId), {
+      await updateDoc(doc(db, "chats", data.chatId), {
         messages: arrayUnion({
-          id: uuid,
+          id: uuid(),
           text: payload.reply,
           senderId: user.uid,
+          date: Timestamp.now(),
         }),
       });
     }
