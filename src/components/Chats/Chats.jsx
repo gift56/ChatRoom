@@ -28,32 +28,34 @@ const Chats = ({ setOpenChat }) => {
 
   return (
     <div className="w-full h-[450px] overflow-y-auto overflow-x-hidden chats">
-      {Object.entries(chats)?.map((chat) => (
-        <div
-          key={chat[0]}
-          onClick={() => {
-            setOpenChat(true);
-            handleSelect(chat[1].userInfo);
-          }}
-          className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300"
-        >
-          <div className="lg:w-[20%]">
-            <img
-              src={chat[1].userInfo.photoURL}
-              alt={chat[1].userInfo.displayName}
-              className="w-12 h-12 rounded-full object-cover"
-            />
+      {Object.entries(chats)
+        ?.sort((a, b) => b[1].date - a[1].date)
+        .map((chat) => (
+          <div
+            key={chat[0]}
+            onClick={() => {
+              setOpenChat(true);
+              handleSelect(chat[1].userInfo);
+            }}
+            className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300"
+          >
+            <div className="lg:w-[20%]">
+              <img
+                src={chat[1].userInfo.photoURL}
+                alt={chat[1].userInfo.displayName}
+                className="w-12 h-12 rounded-full object-cover"
+              />
+            </div>
+            <div className="w-[80%] flex flex-col justify-start items-start">
+              <h4 className="text-base font-normal">
+                {chat[1].userInfo.displayName}
+              </h4>
+              <p className="text-sm text-gray-500">
+                {chat[1].lastMessage?.text}
+              </p>
+            </div>
           </div>
-          <div className="w-[80%] flex flex-col gap-1 justify-start items-start">
-            <h4 className="text-base font-normal">
-              {chat[1].userInfo.displayName}
-            </h4>
-            <p className="text-sm text-gray-500">
-              {chat[1].userInfo.lastMessage?.text}
-            </p>
-          </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 };

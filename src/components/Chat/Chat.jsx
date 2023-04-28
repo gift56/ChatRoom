@@ -54,6 +54,8 @@ const Chat = ({ show, setShow }) => {
               }),
             });
             setLoading(false);
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+            actions.resetForm();
           });
         }
       );
@@ -67,8 +69,16 @@ const Chat = ({ show, setShow }) => {
         }),
       });
       setLoading(false);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      actions.resetForm();
     }
-    await updateDoc(doc(db, "userChats", user?.uid), {
+    await updateDoc(doc(db, "userChats", user.uid), {
+      [data.chatId + ".lastMessage"]: {
+        text: payload.reply,
+      },
+      [data.chatId + ".date"]: serverTimestamp(),
+    });
+    await updateDoc(doc(db, "userChats", data.userInfo.uid), {
       [data.chatId + ".lastMessage"]: {
         text: payload.reply,
       },
