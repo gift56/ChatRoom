@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { doc, onSnapshot } from "firebase/firestore";
 
 const Chats = ({ setOpenChat }) => {
   const [chats, setChats] = useState([]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const unsub = onSnapshot(doc(db, "cities", "SF"), (doc) => {
+      console.log("Current data: ", doc.data());
+    });
+  }, []);
 
   return (
     <div className="w-full h-[450px] overflow-y-auto overflow-x-hidden chats">
