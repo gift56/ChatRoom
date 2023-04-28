@@ -60,7 +60,7 @@ const Register = () => {
         autoClose: 1000,
         toastId: 1,
       });
-      navigate("/register");
+      navigate("/");
       setLoading(false);
     }
 
