@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import { registerSchema } from "../schema";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const initialValues = {
@@ -28,7 +29,13 @@ const Register = () => {
         payload.email,
         payload.password
       );
-    } catch (error) {}
+    } catch (error) {
+      toast.error(error.message, {
+        position: "bottom-right",
+        autoClose: 1000,
+        toastId: 1,
+      });
+    }
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
