@@ -15,4 +15,12 @@ export const AuthContextProvider = ({ children }) => {
       unsubscribe();
     };
   });
+
+  return (
+    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+  );
+};
+
+export const UserAuth = () => {
+  return useContext(AuthContext);
 };
