@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsCameraVideoFill, BsThreeDots } from "react-icons/bs";
 import { FiUserPlus } from "react-icons/fi";
 import { BiImageAdd, BiSend } from "react-icons/bi";
@@ -21,7 +21,8 @@ import {
 import { db, storage } from "../../firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { useState } from "react";
+import logo from "../../assets/chat2.json";
+import Lottie from "lottie-react";
 
 const Chat = ({ show, setShow }) => {
   const [loading, setLoading] = useState(false);
@@ -104,6 +105,17 @@ const Chat = ({ show, setShow }) => {
   }
   const { data } = UserChat();
   const { user } = UserAuth();
+
+  if (data.chatId)
+    return (
+      <div
+        className={`w-full flex h-screen  items-center justify-center flex-col gap-4`}
+      >
+        <div className="w-[35%] max-w-full sticky top-0">
+          <Lottie animationData={logo} loop={true} />
+        </div>
+      </div>
+    );
 
   return (
     <div
