@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import CustomizeInput from "../inputs/CustomizeInput";
 import { useFormik } from "formik";
+import { collection, query, where } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const Search = () => {
   const [user, setUser] = useState(null);
