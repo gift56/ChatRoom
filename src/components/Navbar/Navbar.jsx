@@ -26,7 +26,9 @@ const Navbar = () => {
   };
   return (
     <div className="w-full h-[70px] flex items-center justify-between px-4 sticky top-0">
-      <h1 className="text-xl font-bold select-none w-[40%]">Chat</h1>
+      <div className="w-[20%] max-w-full sticky top-0">
+        <Lottie animationData={logo} loop={true} />
+      </div>
       <div className="flex items-center justify-end">
         <div className="flex items-center gap-1">
           <img
