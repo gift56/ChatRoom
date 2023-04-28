@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const { logOut } = UserAuth();
+  const { logOut, user } = UserAuth();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
