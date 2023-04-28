@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CustomizeInput from "../inputs/CustomizeInput";
 import { useFormik } from "formik";
-import { collection, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase";
 
 const Search = () => {
@@ -12,7 +12,15 @@ const Search = () => {
   };
 
   const onSubmit = async (payload, actions) => {
-    console.log(payload);
+    const q = query(
+      collection(db, "users"),
+      where("displayName", "==", payload.searchusername)
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+    });
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
   };
