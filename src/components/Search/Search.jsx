@@ -34,6 +34,10 @@ const Search = () => {
     e.code == "Enter" && handleSearch();
   };
 
+  const handleSelect=()=>{
+    
+  }
+
   return (
     <div className="w-full border-b">
       <div className="w-full px-4 flex items-center">
@@ -53,7 +57,10 @@ const Search = () => {
         </span>
       </div>
       {user && (
-        <div className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300">
+        <div
+          className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300"
+          onClick={handleSelect}
+        >
           <img
             src={user?.photoURL}
             alt={user?.displayName}
