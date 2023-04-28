@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomizeInput from "../inputs/CustomizeInput";
 import { useFormik } from "formik";
 
 const Search = () => {
+  const [user, setUser] = useState(null);
+  const [err, setErr] = useState(false);
   const initialValues = {
-    search: "",
+    searchusername: "",
   };
 
   const onSubmit = async (payload, actions) => {
@@ -26,8 +28,8 @@ const Search = () => {
       >
         <CustomizeInput
           type="text"
-          name="search"
-          value={values.search}
+          name="searchusername"
+          value={values.searchusername}
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="Search users"
