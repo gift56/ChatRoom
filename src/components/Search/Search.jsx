@@ -4,10 +4,12 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { toast } from "react-toastify";
 import { FiSearch } from "react-icons/fi";
+import { UserAuth } from "../../context/AuthContext";
 
 const Search = () => {
   const [username, setUsername] = useState("");
-  const [user, setUser] = useState(null);
+  const [searchedUser, setSearchedUser] = useState(null);
+  const { user } = UserAuth();
 
   const handleSearch = async () => {
     const q = query(
@@ -17,7 +19,7 @@ const Search = () => {
     try {
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        setUser(doc.data());
+        setSearchedUser(doc.data());
       });
       setUsername("");
     } catch (error) {
@@ -34,9 +36,11 @@ const Search = () => {
     e.code == "Enter" && handleSearch();
   };
 
-  const handleSelect=()=>{
-    
-  }
+  const handleSelect = async () => {
+    // creating user chats
+    const combinedId = user;
+    const res = await getDocs(db, "chats");
+  };
 
   return (
     <div className="w-full border-b">
@@ -56,17 +60,17 @@ const Search = () => {
           <FiSearch size={18} />
         </span>
       </div>
-      {user && (
+      {searchedUser && (
         <div
           className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300"
           onClick={handleSelect}
         >
           <img
-            src={user?.photoURL}
-            alt={user?.displayName}
+            src={searchedUser?.photoURL}
+            alt={searchedUser?.displayName}
             className="w-12 h-12 rounded-full object-cover"
           />
-          <h4 className="text-base font-normal">{user?.displayName}</h4>
+          <h4 className="text-base font-normal">{searchedUser?.displayName}</h4>
         </div>
       )}
     </div>
