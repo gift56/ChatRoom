@@ -15,8 +15,10 @@ import { Timestamp, arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { db, storage } from "../../firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { useState } from "react";
 
 const Chat = ({ show, setShow }) => {
+  const [loading, setLoading] = useState(false);
   const initialValues = {
     reply: "",
     img: null,
@@ -26,7 +28,7 @@ const Chat = ({ show, setShow }) => {
   });
 
   const onSubmit = async (payload, actions) => {
-    console.log(payload);
+    setLoading(true);
     if (payload.img) {
       const storageRef = ref(storage, uuid());
       const uploadTask = uploadBytesResumable(storageRef, payload.img);
@@ -45,6 +47,7 @@ const Chat = ({ show, setShow }) => {
                 img: downloadURL,
               }),
             });
+            setLoading(false);
           });
         }
       );
@@ -57,7 +60,13 @@ const Chat = ({ show, setShow }) => {
           date: Timestamp.now(),
         }),
       });
+      setLoading(false);
     }
+    await updateDoc(doc(db,"userChats",user?.uid),{
+      [data.chatId+".lastMessage"]:{
+        
+      }
+    })
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
   };
@@ -152,8 +161,9 @@ const Chat = ({ show, setShow }) => {
             </label>
           </div>
           <Button
+            disabled={loading}
             text={<BiSend size={25} />}
-            className="bg-primary text-white"
+            className="bg-primary text-white disabled:bg-primary/70 disabled:cursor-not-allowed"
           />
         </div>
       </form>
