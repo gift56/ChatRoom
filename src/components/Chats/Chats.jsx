@@ -7,7 +7,7 @@ import { UserChat } from "../../context/ChatsContext";
 const Chats = ({ setOpenChat }) => {
   const [chats, setChats] = useState([]);
   const { user } = UserAuth();
-  const {} = UserChat();
+  const { dispatch } = UserChat();
 
   useEffect(() => {
     const getChats = () => {
@@ -22,12 +22,19 @@ const Chats = ({ setOpenChat }) => {
     user.uid && getChats();
   }, [user.uid]);
 
+  const handleSelect = (u) => {
+    dispatch({ type: "CHANGE_USER", payload: u });
+  };
+
   return (
     <div className="w-full h-[450px] overflow-y-auto overflow-x-hidden chats">
       {Object.entries(chats)?.map((chat) => (
         <div
           key={chat[0]}
-          onClick={() => setOpenChat(true)}
+          onClick={() => {
+            setOpenChat(true);
+            handleSelect(chat[1].userInfo);
+          }}
           className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300"
         >
           <div className="lg:w-[20%]">
