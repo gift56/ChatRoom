@@ -5,8 +5,9 @@ import { FcAddImage } from "react-icons/fc";
 import { useFormik } from "formik";
 import { registerSchema } from "../schema";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, storage } from "../firebase";
 import { toast } from "react-toastify";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const Register = () => {
   const initialValues = {
