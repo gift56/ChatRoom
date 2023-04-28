@@ -14,6 +14,10 @@ export const ChatContextProvider = ({ children }) => {
     user: {},
   };
 
+  const chatReducer=(stae,action)=>{
+    
+  }
+
   return <ChatContext.Provider value={{}}>{children}</ChatContext.Provider>;
 };
 
