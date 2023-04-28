@@ -6,16 +6,50 @@ import { useFormik } from "formik";
 import { registerSchema } from "../schema";
 
 const Register = () => {
-  const { handleSubmit, handleChange, handleBlur, values, errors, touched } =
-    useFormik({
-      initialValues,
-      validationSchema: registerSchema,
-      onSubmit,
-    });
+  const initialValues = {
+    full_name: "",
+    email: "",
+    password: "",
+    file: null,
+  };
+
+  const onSubmit = async (payload, actions) => {
+    const formData = new FormData();
+    for (let value in payload) {
+      formData.append(value, payload[value]);
+    }
+    formData.append("file", payload.file);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    actions.resetForm();
+  };
+
+  const {
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    values,
+    errors,
+    touched,
+    isSubmitting,
+    setFieldValue,
+  } = useFormik({
+    initialValues,
+    validationSchema: registerSchema,
+    onSubmit,
+  });
 
   const getError = (key) => {
     return touched[key] && errors[key];
   };
+  function handleImageChange(event) {
+    const file = event.currentTarget.files[0];
+    if (file && !file.type.startsWith("image/")) {
+      setFieldValue("file", null);
+      return;
+    }
+    setFieldValue("file", file);
+  }
+
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center">
       <div className="flex items-center justify-center flex-col gap-5">
@@ -32,20 +66,20 @@ const Register = () => {
             <CustomizeInput
               type="text"
               name="full_name"
-              value={values.email}
+              value={values.full_name}
               onChange={handleChange}
               onBlur={handleBlur}
-              error={getError("email")}
+              error={getError("full_name")}
               placeholder="Full Name"
               className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
             <CustomizeInput
               type="text"
               name="email"
-              // value={values.email}
-              // onChange={handleChange}
-              // onBlur={handleBlur}
-              // error={getError("email")}
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={getError("email")}
               placeholder="Email address"
               className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
@@ -53,10 +87,10 @@ const Register = () => {
               type="password"
               name="password"
               containerClass="h-full"
-              // value={values.password}
-              // onChange={handleChange}
-              // onBlur={handleBlur}
-              // error={getError("password")}
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={getError("password")}
               placeholder="Password"
               className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
@@ -64,8 +98,7 @@ const Register = () => {
               <CustomizeInput
                 type="file"
                 name="file"
-                // value={values.file}
-                // onChange={handleChange}
+                onChange={handleImageChange}
                 className="hidden"
                 accept="image/*"
                 id="file"
@@ -83,7 +116,7 @@ const Register = () => {
               </label>
             </div>
             <Button
-              // disabled={loading}
+              disabled={isSubmitting}
               type="submit"
               text="Create Account"
               className="mt-4 w-full h-[44px] bg-primary text-white disabled:bg-primary/70"

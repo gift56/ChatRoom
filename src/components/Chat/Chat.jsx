@@ -19,7 +19,6 @@ const Chat = ({ show, setShow }) => {
         <div className="flex items-center justify-start gap-2">
           <span onClick={() => setShow(false)} className="lg:hidden">
             <MdArrowBack className="text-gray-500" size={20} />
-            <span>{process.env.REACT_APP_FIREBASE_API_KEY}</span>
           </span>
           <img
             src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
