@@ -3,15 +3,14 @@ import { UserAuth } from "../../context/AuthContext";
 import { UserChat } from "../../context/ChatsContext";
 
 const Message = ({ chat }) => {
-  const [owner, setOwner] = useState(false);
   const { user } = UserAuth();
   const { data } = UserChat();
 
   return (
-    <div className={`flex gap-5 ${owner ? "flex-row" : "flex-row-reverse"}`}>
+    <div className={`flex gap-5 ${chat.senderId === user.uid  ? "flex-row" : "flex-row-reverse"}`}>
       <div>
         <img
-          src={``}
+          src={chat.senderId === user.uid ? user.photoURL : data.user.photoURL}
           alt="user_image"
           className="w-10 h-10 rounded-full object-cover border"
         />
@@ -19,7 +18,7 @@ const Message = ({ chat }) => {
       <div className={`flex flex-col gap-1 relative max-w-[50%]`}>
         <div
           className={`w-full p-4 flex flex-col gap-2  ${
-            owner
+            chat.senderId === user.uid 
               ? "rounded-tr-xl rounded-bl-xl rounded-br-xl bg-white/70"
               : "rounded-tl-xl rounded-bl-xl rounded-br-xl items-end justify-end bg-primary text-white"
           }`}
@@ -35,7 +34,7 @@ const Message = ({ chat }) => {
         </div>
         <span
           className={`text-xs text-gray-500 ${
-            owner ? "text-start" : "text-end"
+            chat.senderId === user.uid  ? "text-start" : "text-end"
           } w-full`}
         >
           just now
