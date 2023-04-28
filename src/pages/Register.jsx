@@ -5,7 +5,7 @@ import { FcAddImage } from "react-icons/fc";
 import { useFormik } from "formik";
 import { registerSchema } from "../schema";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, storage } from "../firebase";
+import { auth, db, storage } from "../firebase";
 import { toast } from "react-toastify";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
