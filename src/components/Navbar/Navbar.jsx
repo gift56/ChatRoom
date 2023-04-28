@@ -4,6 +4,8 @@ import { VscSignOut } from "react-icons/vsc";
 import { UserAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import logo from "../../assets/chat.json";
+import Lottie from "lottie-react";
 
 const Navbar = () => {
   const { logOut, user } = UserAuth();
