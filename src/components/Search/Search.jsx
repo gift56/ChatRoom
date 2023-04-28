@@ -42,7 +42,9 @@ const Search = () => {
       user?.uid > searchedUser?.uid
         ? user?.uid + searchedUser?.uid
         : searchedUser?.uid + user?.uid;
-    const res = await getDocs(db, "chats");
+    try {
+      const res = await getDocs(db, "chats", combinedId);
+    } catch (error) {}
   };
 
   return (
