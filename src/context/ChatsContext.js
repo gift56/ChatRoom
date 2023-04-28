@@ -10,7 +10,8 @@ export const ChatContext = createContext();
 
 export const ChatContextProvider = ({ children }) => {
   const INITIAL_STATE = {
-    chatId: "",
+    chatId: "null",
+    user: {},
   };
 
   return <ChatContext.Provider value={{}}>{children}</ChatContext.Provider>;
