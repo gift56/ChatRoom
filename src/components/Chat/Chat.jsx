@@ -13,6 +13,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+import { v4 as uuid } from "uuid";
 
 const Chat = ({ show, setShow }) => {
   const initialValues = {
@@ -29,7 +30,9 @@ const Chat = ({ show, setShow }) => {
     } else {
       await updateDoc(doc(db, "chtas", data.chatId), {
         messages: arrayUnion({
-          
+          id: uuid,
+          text: payload.reply,
+          senderId: user.uid,
         }),
       });
     }
