@@ -38,7 +38,10 @@ const Search = () => {
 
   const handleSelect = async () => {
     // creating user chats
-    const combinedId = user;
+    const combinedId =
+      user?.uid > searchedUser?.uid
+        ? user?.uid + searchedUser?.uid
+        : searchedUser?.uid + user?.uid;
     const res = await getDocs(db, "chats");
   };
 
