@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
+import { UserAuth } from "../../context/AuthContext";
 
 const Chats = ({ setOpenChat }) => {
   const [chats, setChats] = useState([]);
+  const { user } = UserAuth();
 
   useEffect(() => {
-    const unsub = onSnapshot(doc(db, "cities", "SF"), (doc) => {
+    const unsub = onSnapshot(doc(db, "userChats", user.uid), (doc) => {
       console.log("Current data: ", doc.data());
     });
   }, []);
