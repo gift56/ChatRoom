@@ -106,13 +106,22 @@ const Chat = ({ show, setShow }) => {
   const { data } = UserChat();
   const { user } = UserAuth();
 
-  if (data.chatId)
+  if (!data?.user?.photoURL)
     return (
       <div
-        className={`w-full flex h-screen  items-center justify-center flex-col gap-4`}
+        className={`w-full flex lg:h-screen items-center justify-center flex-col gap-4 fixed top-[130px] h-[90vh] bg-[#ecf0f1] lg:relative lg:top-0`}
       >
         <div className="w-[35%] max-w-full sticky top-0">
           <Lottie animationData={logo} loop={true} />
+        </div>
+        <div className="flex flex-col text-center items-center justify-center w-full gap-3">
+          <h2 className="text-xl md:text-4xl font-bold text-center">
+            Welcome 👋
+          </h2>
+          <p className="text-sm md:text-base font-medium text-center max-w-[500px]">
+            Hey there! Welcome to chatio, where you can connect with your
+            friends and stay in touch on the go. Let's get chatting!
+          </p>
         </div>
       </div>
     );
@@ -128,11 +137,13 @@ const Chat = ({ show, setShow }) => {
           <span onClick={() => setShow(false)} className="lg:hidden">
             <MdArrowBack className="text-gray-500" size={20} />
           </span>
-          <img
-            src={data?.user?.photoURL}
-            className="w-10 h-10 rounded-full object-cover border"
-            alt="profile_pitcure"
-          />
+          {data?.user?.photoURL && (
+            <img
+              src={data?.user?.photoURL}
+              className="w-10 h-10 rounded-full object-cover border"
+              alt="profile_pitcure"
+            />
+          )}
           <h4 className="md:text-xl text-base font-medium">
             {data?.user?.displayName}
           </h4>
