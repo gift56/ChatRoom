@@ -1,8 +1,37 @@
 import React from "react";
 import { Button, CustomizeInput } from "../components";
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import { loginSchema } from "../schema";
 
 const Login = () => {
+  const initialValues = {
+    email: "",
+    password: "",
+  };
+  const onSubmit = async (payload, actions) => {
+    console.log(payload)
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    actions.resetForm();
+  };
+
+  const {
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    values,
+    errors,
+    touched,
+    isSubmitting,
+  } = useFormik({
+    initialValues,
+    validationSchema: loginSchema,
+    onSubmit,
+  });
+
+  const getError = (key) => {
+    return touched[key] && errors[key];
+  };
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center">
       <div className="flex items-center justify-center flex-col gap-5">
@@ -12,14 +41,14 @@ const Login = () => {
           <p className="text-sm font-normal text-gray-400">
             Please sign-in to your account
           </p>
-          <form className="flex flex-col gap-2 items-start justify-start w-full">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-2 items-start justify-start w-full">
             <CustomizeInput
               type="text"
               name="email"
-              // value={values.email}
-              // onChange={handleChange}
-              // onBlur={handleBlur}
-              // error={getError("email")}
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={getError("email")}
               placeholder="Email address"
               className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
@@ -27,15 +56,15 @@ const Login = () => {
               type="password"
               name="password"
               containerClass="h-full"
-              // value={values.password}
-              // onChange={handleChange}
-              // onBlur={handleBlur}
-              // error={getError("password")}
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={getError("password")}
               placeholder="Password"
               className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
             <Button
-              // disabled={loading}
+              disabled={isSubmitting}
               type="submit"
               text="Create Account"
               className="mt-4 w-full h-[44px] bg-primary text-white disabled:bg-primary/70"
