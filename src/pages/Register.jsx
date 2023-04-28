@@ -151,8 +151,8 @@ const Register = () => {
                 <span>
                   <FcAddImage size={30} />
                 </span>
-                <span className="text-primary text-base font-normal">
-                  Upload an avatar
+                <span className="text-primary text-base font-normal truncate w-full">
+                  {values.file ? values.file.name : "Upload an avatar"}
                 </span>
               </label>
             </div>
@@ -160,7 +160,7 @@ const Register = () => {
               disabled={isSubmitting}
               type="submit"
               text="Create Account"
-              className="mt-4 w-full h-[44px] bg-primary text-white disabled:bg-primary/70"
+              className="mt-4 w-full h-[44px] bg-primary text-white disabled:bg-primary/70 disabled:cursor-not-allowed"
             />
             <p className="text-gray-400 font-normal text-sm md:text-base text-center w-full mt-2">
               Already on our platform?{" "}
