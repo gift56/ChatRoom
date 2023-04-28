@@ -9,7 +9,7 @@ const Messages = () => {
   const { data } = UserChat();
 
   useEffect(() => {
-    const unsub = onSnapshot(doc(db, "chats", data.chatId), () => {
+    const unsub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
       doc.exists() && setMessages(doc.data().messages);
     });
 
@@ -18,10 +18,12 @@ const Messages = () => {
     };
   }, [data.chatId]);
 
+  console.log(messages);
+
   return (
     <div className="bg-gray-200 p-4 h-[520px] overflow-y-auto overflow-x-hidden message flex flex-col gap-3">
-      {messages?.map((m, i) => (
-        <Message key={i} chat={m} />
+      {messages?.map((m) => (
+        <Message key={m.id} chat={m} />
       ))}
     </div>
   );
