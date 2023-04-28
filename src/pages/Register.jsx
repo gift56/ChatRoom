@@ -25,7 +25,10 @@ const Register = () => {
           <p className="text-sm font-normal text-gray-400">
             Enter your details to create account
           </p>
-          <form className="flex flex-col gap-2 items-start justify-start w-full">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-2 items-start justify-start w-full"
+          >
             <CustomizeInput
               type="text"
               name="full_name"
