@@ -1,8 +1,10 @@
 import React from "react";
 import Button from "../Button/Button";
 import { VscSignOut } from "react-icons/vsc";
+import { UserAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
+  const { user, logOut } = UserAuth();
   return (
     <div className="w-full h-[70px] flex items-center justify-between px-4 sticky top-0">
       <h1 className="text-xl font-bold select-none">Chat Room</h1>
