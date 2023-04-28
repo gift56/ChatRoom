@@ -2,8 +2,20 @@ import React from "react";
 import { Button, CustomizeInput } from "../components";
 import { Link } from "react-router-dom";
 import { FcAddImage } from "react-icons/fc";
+import { useFormik } from "formik";
+import { registerSchema } from "../schema";
 
 const Register = () => {
+  const { handleSubmit, handleChange, handleBlur, values, errors, touched } =
+    useFormik({
+      initialValues,
+      validationSchema: registerSchema,
+      onSubmit,
+    });
+
+  const getError = (key) => {
+    return touched[key] && errors[key];
+  };
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center">
       <div className="flex items-center justify-center flex-col gap-5">
@@ -17,10 +29,10 @@ const Register = () => {
             <CustomizeInput
               type="text"
               name="full_name"
-              // value={values.email}
-              // onChange={handleChange}
-              // onBlur={handleBlur}
-              // error={getError("email")}
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={getError("email")}
               placeholder="Full Name"
               className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
