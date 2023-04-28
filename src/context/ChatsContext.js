@@ -22,15 +22,12 @@ export const ChatContextProvider = ({ children }) => {
         return {
           user: action.payload,
           chatId:
-            user?.uid > searchedUser?.uid
-              ? user?.uid + searchedUser?.uid
-              : searchedUser?.uid + user?.uid,
+            user.uid > action.payload.uid
+              ? user.uid + action.payload.uid
+              : action.payload.uid + user.uid,
         };
-        break;
-
       default:
         return state;
-        break;
     }
   };
 
