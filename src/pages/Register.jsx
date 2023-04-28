@@ -32,7 +32,6 @@ const Register = () => {
 
       uploadTask.on(
         (error) => {
-          // Handle unsuccessful uploads
           console.log(error);
         },
         () => {
