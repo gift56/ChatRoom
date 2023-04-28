@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import { UserAuth } from "../../context/AuthContext";
 
 const Message = ({ chat }) => {
   const [owner, setOwner] = useState(false);
-  console.log(chat);
+  const { user } = UserAuth();
+
   return (
     <div className={`flex gap-5 ${owner ? "flex-row" : "flex-row-reverse"}`}>
       <div>
         <img
-          src="https://images.pexels.com/photos/10152592/pexels-photo-10152592.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+          src={``}
           alt="user_image"
           className="w-10 h-10 rounded-full object-cover border"
         />
