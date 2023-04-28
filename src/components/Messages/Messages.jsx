@@ -20,8 +20,8 @@ const Messages = () => {
 
   return (
     <div className="bg-gray-200 p-4 h-[520px] overflow-y-auto overflow-x-hidden message flex flex-col gap-3">
-      {messages?.map((m) => (
-        <Message key={m} />
+      {messages?.map((m, i) => (
+        <Message key={i} chat={m} />
       ))}
     </div>
   );
