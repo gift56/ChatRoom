@@ -3,10 +3,10 @@ import CustomizeInput from "../inputs/CustomizeInput";
 import { useFormik } from "formik";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase";
+import { toast } from "react-toastify";
 
 const Search = () => {
   const [user, setUser] = useState(null);
-  const [err, setErr] = useState(false);
   const initialValues = {
     searchusername: "",
   };
@@ -22,7 +22,11 @@ const Search = () => {
         setUser(doc.data());
       });
     } catch (error) {
-      console.log(error);
+      toast.error("User Not Found!", {
+        position: "top-left",
+        toastId: 1,
+        autoClose: 1000,
+      });
     }
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
