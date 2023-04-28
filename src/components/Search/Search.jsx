@@ -54,6 +54,7 @@ const Search = () => {
       if (!res.exist()) {
         //creating chats collections
         await setDoc(doc, (db, "chats", combinedId), { messages: [] });
+        
       }
     } catch (error) {}
   };
