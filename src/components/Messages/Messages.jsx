@@ -21,7 +21,7 @@ const Messages = () => {
   console.log(messages);
 
   return (
-    <div className="bg-gray-200 dark:bg-darkBg p-4 h-[520px] overflow-y-auto overflow-x-hidden message flex flex-col gap-3">
+    <div className="bg-gray-200 dark:bg-darkBg p-4 h-[520px] overflow-y-auto overflow-x-hidden message flex flex-col gap-3 transition-all duration-300">
       {messages?.map((m) => (
         <Message key={m.id} chat={m} />
       ))}
