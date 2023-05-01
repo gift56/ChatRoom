@@ -1,3 +1,6 @@
+## This is the official codebase for Lendsqr project
+
+Open [Chat Connect]() to preview the complete projects.
 
 
 
