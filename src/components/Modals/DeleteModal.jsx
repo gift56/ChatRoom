@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const DeleteModal = ({ show, setShow }) => {
+const DeleteModal = ({ show, setShow, handleLogout }) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
