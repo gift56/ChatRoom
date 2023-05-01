@@ -34,7 +34,7 @@ const Sidebar = ({ setOpenChat, theme, setTheme }) => {
   const renderThemeChangerIcon = () => {
     if (theme === "dark") {
       return (
-        <button
+      <button
           type="button"
           className="text-gray-400 outline-none border-none"
           onClick={() => setTheme("light")}
