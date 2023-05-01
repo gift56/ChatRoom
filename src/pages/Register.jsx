@@ -107,7 +107,7 @@ const Register = () => {
         <div className="lg:w-[8%] w-[20%] max-w-full sticky top-0">
           <Lottie animationData={logo} loop={true} />
         </div>
-        <div className="md:w-[450px] w-[90%] border flex flex-col px-5 py-4 shadow-smallShadow rounded-md gap-3 lg:h-[450px] lg:overflow-y-auto register bg-white">
+        <div className="md:w-[450px] w-[90%] border flex flex-col px-5 py-4 shadow-smallShadow rounded-md gap-3 lg:h-[450px] lg:overflow-y-auto register bg-white dark:bg-slate-800 border-slate-800">
           <h2 className="text-xl font-bold">Welcome 👋🏻</h2>
           <p className="text-sm font-normal text-gray-400">
             Enter your details to create account
@@ -124,7 +124,7 @@ const Register = () => {
               onBlur={handleBlur}
               error={getError("full_name")}
               placeholder="Full Name"
-              className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
+              className="bg-white dark:bg-transparent dark:text-white dark:placeholder:text-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
             <CustomizeInput
               type="text"
@@ -134,7 +134,7 @@ const Register = () => {
               onBlur={handleBlur}
               error={getError("email")}
               placeholder="Email address"
-              className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
+              className="bg-white dark:bg-transparent dark:text-white dark:placeholder:text-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
             <CustomizeInput
               type="password"
@@ -145,7 +145,7 @@ const Register = () => {
               onBlur={handleBlur}
               error={getError("password")}
               placeholder="Password"
-              className="bg-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
+              className="bg-white dark:bg-transparent dark:text-white dark:placeholder:text-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
             <div className="w-full">
               <CustomizeInput
@@ -176,7 +176,10 @@ const Register = () => {
             />
             <p className="text-gray-400 font-normal text-sm md:text-base text-center w-full mt-2">
               Already on our platform?{" "}
-              <Link to="/" className="text-[#3307C5] mx-2 font-medium">
+              <Link
+                to="/"
+                className="text-[#3307C5] dark:text-primary mx-2 font-medium"
+              >
                 Sign In
               </Link>
             </p>
