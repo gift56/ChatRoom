@@ -28,7 +28,7 @@ const DeleteModal = ({ show, setShow, handleLogout }) => {
         initial={{ opacity: 0, y: "-150px" }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", duration: 1 }}
-        className="rounded-xl bg-white dark:bg-slate-800 lg:p-8 p-4 relative w-[90%] md:w-[450px] flex items-start justify-start flex-col gap-6 transition-all duration-300"
+        className="rounded-xl bg-white dark:bg-slate-800 lg:p-8 p-4 relative w-[90%] md:w-[450px] flex items-start justify-start flex-col gap-6 transition-[background-color] duration-300"
       >
         <h2 className="text-xl font-bold text-darkColor dark:text-white transition-all duration-300">
           Are you sure you want to log out!
