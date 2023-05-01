@@ -56,7 +56,7 @@ const Sidebar = ({ setOpenChat, theme, setTheme }) => {
   };
   return (
     <>
-      <div className="w-full lg:w-[30%] border-r bg-white dark:bg-slate-800 h-screen flex items-start justify-start relative z-20 lg:z-0">
+      <div className="w-full lg:w-[30%] border-r bg-white dark:border-slate-500 dark:bg-slate-800 h-screen flex items-start justify-start relative z-20 lg:z-0">
         <div className="h-full bg-gray-800 p-3 flex flex-col justify-between items-center border-gray-500 border-r">
           <div className="w-[30px] max-w-full sticky top-0">
             <Lottie

@@ -109,7 +109,7 @@ const Chat = ({ show, setShow }) => {
   if (!data?.user?.photoURL)
     return (
       <div
-        className={`w-full lg:h-screen items-center justify-center flex-col gap-4 fixed  top-[110px] h-[90vh] bg-[#ecf0f1] lg:relative lg:top-0 ${
+        className={`w-full lg:h-screen items-center justify-center flex-col gap-4 fixed  top-[110px] h-[90vh] bg-[#ecf0f1] dark:bg-darkBg lg:relative lg:top-0 ${
           show ? "hidden" : "flex"
         }`}
       >
