@@ -29,8 +29,12 @@ const Navbar = () => {
   return (
     <>
       <div className="w-full h-[70px] flex items-center justify-between px-4 sticky top-0">
-        <div className="flex-1 max-w-full sticky top-0">
-          <Lottie animationData={logo} loop={true} />
+        <div className="w-[50px] max-w-full sticky top-0">
+          <Lottie
+            animationData={logo}
+            loop={true}
+            className="w-full h-full object-contain"
+          />
         </div>
         <div className="flex-2 flex items-center justify-end">
           <div className="flex items-center gap-1">
