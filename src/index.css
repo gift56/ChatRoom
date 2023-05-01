@@ -17,3 +17,9 @@ body {
 img {
   -webkit-user-drag: none;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  background: transparent !important;
+}
