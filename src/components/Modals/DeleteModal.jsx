@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import Button from "../Button/Button";
 
 const DeleteModal = ({ show, setShow, handleLogout }) => {
   const modalRef = useRef(null);
@@ -32,6 +33,14 @@ const DeleteModal = ({ show, setShow, handleLogout }) => {
         <h2 className="text-xl font-bold text-darkColor">
           Are you sure you want to log out!
         </h2>
+        <div className="flex items-center justify-start w-full gap-4">
+          <Button text="Cancel" className="border font-semibold text-darkBg" />
+          <Button
+            onClick={() => handleLogout()}
+            text="Logout"
+            className="border border-red-500 bg-red-500 text-white font-semibold"
+          />
+        </div>
       </motion.div>
     </div>
   );
