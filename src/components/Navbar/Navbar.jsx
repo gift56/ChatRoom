@@ -42,13 +42,17 @@ const Navbar = () => {
             <span className="truncate">{user?.displayName}</span>
           </div>
           <Button
-            onClick={handleLogout}
+            onClick={() => setOpenModal(true)}
             text={<VscSignOut size={20} />}
             className="text-red-400 cursor-pointer"
           />
         </div>
       </div>
-      <DeleteModal show={openModal} setShow={setOpenModal} />
+      <DeleteModal
+        show={openModal}
+        setShow={setOpenModal}
+        handleLogout={handleLogout}
+      />
     </>
   );
 };
