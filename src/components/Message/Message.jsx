@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { UserAuth } from "../../context/AuthContext";
 import { UserChat } from "../../context/ChatsContext";
+import moment from "moment";
 
 const Message = ({ chat }) => {
   const { user } = UserAuth();
@@ -10,6 +11,8 @@ const Message = ({ chat }) => {
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   }, [chat]);
+
+  console.log(chat);
 
   return (
     <div
@@ -49,7 +52,10 @@ const Message = ({ chat }) => {
             chat.senderId === user.uid ? "text-end" : "text-start"
           } w-full`}
         >
-          just now
+          {moment
+            .unix(chat.date.seconds)
+            .add(chat.date.nanoseconds / 1000000, "milliseconds")
+            .fromNow()}
         </span>
       </div>
     </div>
