@@ -134,10 +134,10 @@ const Chat = ({ show, setShow }) => {
         show ? "right-0" : "right-[-100%]"
       }`}
     >
-      <div className="flex w-full items-center justify-between gap-4 bg-white shadow-sm h-14 px-5 flex-none">
+      <div className="flex w-full items-center justify-between gap-4 bg-white dark:bg-slate-800 shadow-sm h-14 px-5 flex-none">
         <div className="flex items-center justify-start gap-2">
           <span onClick={() => setShow(false)} className="lg:hidden">
-            <MdArrowBack className="text-gray-500" size={20} />
+            <MdArrowBack className="text-gray-500 dark:text-white" size={20} />
           </span>
           {data?.user?.photoURL && (
             <img
@@ -154,19 +154,19 @@ const Chat = ({ show, setShow }) => {
           <span>
             <BsCameraVideoFill
               size={18}
-              className="text-gray-600 cursor-pointer hover:text-primary transition-all duration-300"
+              className="text-gray-600 dark:text-white cursor-pointer hover:text-primary transition-all duration-300"
             />
           </span>
           <span>
             <FiUserPlus
               size={18}
-              className="text-gray-600 cursor-pointer hover:text-primary transition-all duration-300"
+              className="text-gray-600 dark:text-white cursor-pointer hover:text-primary transition-all duration-300"
             />
           </span>
           <span>
             <BsThreeDots
               size={18}
-              className="text-gray-600 cursor-pointer hover:text-primary transition-all duration-300"
+              className="text-gray-600 dark:text-white cursor-pointer hover:text-primary transition-all duration-300"
             />
           </span>
         </div>
@@ -174,7 +174,7 @@ const Chat = ({ show, setShow }) => {
       <Messages />
       <form
         onSubmit={handleSubmit}
-        className="h-14 w-full bg-white p-4 flex-none flex items-center justify-between gap-2"
+        className="h-14 w-full bg-white dark:bg-slate-800 p-4 flex-none flex items-center justify-between gap-2"
       >
         <CustomizeInput
           type="text"
@@ -183,11 +183,11 @@ const Chat = ({ show, setShow }) => {
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="Send a message..."
-          className="bg-white h-[40px] w-full outline-none text-base text-gray-500 placeholder:text-gray-500"
+          className="bg-white dark:bg-transparent dark:text-white dark:placeholder:text-white  h-[40px] w-full outline-none text-base text-gray-500 placeholder:text-gray-500"
         />
         <div className="flex items-center gap-3 justify-end">
           <span>
-            <IoMdAttach size={23} className="text-gray-500" />
+            <IoMdAttach size={23} className="text-gray-500 dark:text-white" />
           </span>
           <div>
             <CustomizeInput
@@ -199,7 +199,7 @@ const Chat = ({ show, setShow }) => {
               id="file"
             />
             <label htmlFor="file" className="cursor-pointer">
-              <BiImageAdd size={23} className="text-gray-500" />
+              <BiImageAdd size={23} className="text-gray-500 dark:text-white" />
             </label>
           </div>
           <Button
