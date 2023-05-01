@@ -7,7 +7,7 @@ const Sidebar = ({ setOpenChat }) => {
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "system"
   );
-  
+
   const element = document.documentElement;
   function onWindowMatch() {
     if (
@@ -20,6 +20,24 @@ const Sidebar = ({ setOpenChat }) => {
       element.classList.remove("dark");
     }
   }
+  onWindowMatch();
+  useEffect(() => {
+    switch (theme) {
+      case "dark":
+        element.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        break;
+      case "light":
+        element.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        break;
+
+      default:
+        localStorage.removeItem("theme");
+        onWindowMatch();
+        break;
+    }
+  }, [theme]);
   return (
     <div className="w-full lg:w-[25%] border-r bg-white h-screen flex items-start justify-start">
       <div className=""></div>
