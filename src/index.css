@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-[#ecf0f1] text-darkColor dark:bg-darkBg dark:text-white;
+  @apply bg-[#ecf0f1] text-darkColor dark:bg-darkBg dark:text-white transition-all duration-300;
 }
 ::-webkit-scrollbar {
   width: 4px;
