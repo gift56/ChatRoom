@@ -12,7 +12,7 @@ import Lottie from "lottie-react";
 import Button from "../Button/Button";
 import { VscSignOut } from "react-icons/vsc";
 
-const Sidebar = ({ setOpenChat }) => {
+const Sidebar = ({ setOpenChat, theme, setTheme }) => {
   const { logOut, user } = UserAuth();
   const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate();
@@ -30,47 +30,13 @@ const Sidebar = ({ setOpenChat }) => {
       console.log(error);
     }
   };
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "system"
-  );
-
-  const element = document.documentElement;
-  function onWindowMatch() {
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      element.classList.add("dark");
-    } else {
-      element.classList.remove("dark");
-    }
-  }
-  onWindowMatch();
-  useEffect(() => {
-    switch (theme) {
-      case "dark":
-        element.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-        break;
-      case "light":
-        element.classList.remove("dark");
-        localStorage.setItem("theme", "light");
-        break;
-
-      default:
-        localStorage.removeItem("theme");
-        onWindowMatch();
-        break;
-    }
-  }, [theme]);
 
   const renderThemeChangerIcon = () => {
     if (theme === "dark") {
       return (
         <button
           type="button"
-          className="text-gray-400"
+          className="text-gray-400 outline-none border-none"
           onClick={() => setTheme("light")}
         >
           <HiOutlineSun fontSize={20} />
@@ -80,7 +46,7 @@ const Sidebar = ({ setOpenChat }) => {
       return (
         <button
           type="button"
-          className="text-gray-400"
+          className="text-gray-400 outline-none border-none"
           onClick={() => setTheme("dark")}
         >
           <HiMoon fontSize={20} />
