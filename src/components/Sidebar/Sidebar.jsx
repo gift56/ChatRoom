@@ -89,40 +89,42 @@ const Sidebar = ({ setOpenChat }) => {
     }
   };
   return (
-    <div className="w-full lg:w-[30%] border-r bg-white h-screen flex items-start justify-start relative z-20 lg:z-0">
-      <div className="h-full bg-gray-800 p-3 flex flex-col justify-between items-center">
-        <div className="w-[30px] max-w-full sticky top-0">
-          <Lottie
-            animationData={logo}
-            loop={true}
-            className="w-full h-full object-contain"
-          />
+    <>
+      <div className="w-full lg:w-[30%] border-r bg-white h-screen flex items-start justify-start relative z-20 lg:z-0">
+        <div className="h-full bg-gray-800 p-3 flex flex-col justify-between items-center">
+          <div className="w-[30px] max-w-full sticky top-0">
+            <Lottie
+              animationData={logo}
+              loop={true}
+              className="w-full h-full object-contain"
+            />
+          </div>
+          <div className="flex flex-col gap-5 items-center">
+            {renderThemeChangerIcon()}
+            <img
+              src={user?.photoURL}
+              alt={user?.displayName}
+              className="w-8 h-8 rounded-full object-cover border"
+            />
+            <Button
+              onClick={() => setOpenModal(true)}
+              text={<VscSignOut size={20} />}
+              className="text-red-400 cursor-pointer"
+            />
+          </div>
         </div>
-        <div className="flex flex-col gap-5 items-center">
-          {renderThemeChangerIcon()}
-          <img
-            src={user?.photoURL}
-            alt={user?.displayName}
-            className="w-8 h-8 rounded-full object-cover border"
-          />
-          <Button
-            onClick={() => setOpenModal(true)}
-            text={<VscSignOut size={20} />}
-            className="text-red-400 cursor-pointer"
-          />
+        <div className="w-full">
+          <Navbar />
+          <Search setOpenChat={setOpenChat} />
+          <Chats setOpenChat={setOpenChat} />
         </div>
-      </div>
-      <div className="w-full">
-        <Navbar />
-        <Search setOpenChat={setOpenChat} />
-        <Chats setOpenChat={setOpenChat} />
       </div>
       <DeleteModal
         show={openModal}
         setShow={setOpenModal}
         handleLogout={handleLogout}
       />
-    </div>
+    </>
   );
 };
 
