@@ -134,7 +134,7 @@ const Register = () => {
               onBlur={handleBlur}
               error={getError("email")}
               placeholder="Email address"
-              className="bg-white dark:bg-transparent dark:text-white dark:placeholder:text-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
+              className="bg-white transition-all duration-300 dark:bg-transparent dark:text-white dark:placeholder:text-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
             <CustomizeInput
               type="password"
@@ -145,7 +145,7 @@ const Register = () => {
               onBlur={handleBlur}
               error={getError("password")}
               placeholder="Password"
-              className="bg-white dark:bg-transparent dark:text-white dark:placeholder:text-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
+              className="bg-white transition-all duration-300 dark:bg-transparent dark:text-white dark:placeholder:text-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
             <div className="w-full">
               <CustomizeInput
