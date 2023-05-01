@@ -130,7 +130,7 @@ const Chat = ({ show, setShow }) => {
 
   return (
     <div
-      className={`lg:w-[85%] flex flex-col h-screen absolute top-0 w-full lg:relative lg:right-0 z-40 ${
+      className={`lg:w-[80%] flex flex-col h-screen absolute top-0 w-full lg:relative lg:right-0 z-40 ${
         show ? "right-0" : "right-[-100%]"
       }`}
     >
