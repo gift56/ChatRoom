@@ -96,7 +96,7 @@ const Login = () => {
             />
             <p className="text-gray-400 font-normal text-sm md:text-base text-center w-full mt-2">
               New on our platform?
-              <Link to="/register" className="text-[#3307C5] mx-2 font-medium">
+              <Link to="/register" className="text-[#3307C5] dark:text-primary mx-2 font-medium">
                 Create an account
               </Link>
             </p>
