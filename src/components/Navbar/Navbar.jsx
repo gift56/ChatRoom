@@ -27,27 +27,29 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="w-full h-[70px] flex items-center justify-between px-4 sticky top-0">
-      <div className="flex-1 max-w-full sticky top-0">
-        <Lottie animationData={logo} loop={true} />
-      </div>
-      <div className="flex-2 flex items-center justify-end">
-        <div className="flex items-center gap-1">
-          <img
-            src={user?.photoURL}
-            alt={user?.displayName}
-            className="w-8 h-8 rounded-full object-cover border"
-          />
-          <span className="truncate">{user?.displayName}</span>
+    <>
+      <div className="w-full h-[70px] flex items-center justify-between px-4 sticky top-0">
+        <div className="flex-1 max-w-full sticky top-0">
+          <Lottie animationData={logo} loop={true} />
         </div>
-        <Button
-          onClick={handleLogout}
-          text={<VscSignOut size={20} />}
-          className="text-red-400 cursor-pointer"
-        />
+        <div className="flex-2 flex items-center justify-end">
+          <div className="flex items-center gap-1">
+            <img
+              src={user?.photoURL}
+              alt={user?.displayName}
+              className="w-8 h-8 rounded-full object-cover border"
+            />
+            <span className="truncate">{user?.displayName}</span>
+          </div>
+          <Button
+            onClick={handleLogout}
+            text={<VscSignOut size={20} />}
+            className="text-red-400 cursor-pointer"
+          />
+        </div>
       </div>
       <DeleteModal show={openModal} setShow={setOpenModal} />
-    </div>
+    </>
   );
 };
 
