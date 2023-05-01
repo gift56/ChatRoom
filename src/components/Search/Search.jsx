@@ -104,7 +104,7 @@ const Search = ({ setOpenChat }) => {
       </div>
       {searchedUser && (
         <div
-          className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300 relative z-20 bg-gray-200"
+          className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 dark:hover:bg-slate-600 px-4 p-2 cursor-pointer transition-all duration-300 relative z-20 bg-gray-200"
           onClick={handleSelect}
         >
           <img

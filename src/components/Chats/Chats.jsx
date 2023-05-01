@@ -37,7 +37,7 @@ const Chats = ({ setOpenChat }) => {
               setOpenChat(true);
               handleSelect(chat[1].userInfo);
             }}
-            className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 px-4 p-2 cursor-pointer transition-all duration-300"
+            className="flex items-center justify-start w-full gap-2 hover:bg-gray-200 dark:hover:bg-slate-600 px-4 p-2 cursor-pointer transition-all duration-300"
           >
             <div className="lg:w-[20%]">
               <img
