@@ -58,7 +58,7 @@ const Login = () => {
         <div className="lg:w-[20%] w-[20%] max-w-full sticky top-0">
           <Lottie animationData={logo} loop={true} />
         </div>
-        <div className="md:w-[450px] border flex flex-col px-5 py-4 shadow-smallShadow rounded-md gap-3 lg:h-[350px] lg:overflow-y-auto register bg-white dark:bg-slate-800 border-slate-800">
+        <div className="md:w-[450px] border flex flex-col px-5 py-4 shadow-smallShadow rounded-md gap-3 lg:h-[350px] lg:overflow-y-auto register bg-white dark:bg-slate-800 border-slate-800 transition-all duration-300">
           <h2 className="text-xl font-bold">Welcome 👋🏻</h2>
           <p className="text-sm font-normal text-gray-400">
             Please sign-in to your account
@@ -75,7 +75,7 @@ const Login = () => {
               onBlur={handleBlur}
               error={getError("email")}
               placeholder="Email address"
-              className="bg-white dark:bg-transparent dark:text-white dark:placeholder:text-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
+              className="bg-white transition-all duration-300 dark:bg-transparent dark:text-white dark:placeholder:text-white border border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
             <CustomizeInput
               type="password"
@@ -86,7 +86,7 @@ const Login = () => {
               onBlur={handleBlur}
               error={getError("password")}
               placeholder="Password"
-              className="bg-white border dark:bg-transparent dark:text-white dark:placeholder:text-white border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
+              className="bg-white transition-all duration-300 border dark:bg-transparent dark:text-white dark:placeholder:text-white border-firstgray h-[48px] w-full rounded px-4 focus:border-primary outline-none text-sm text-gray-500 placeholder:text-gray-500"
             />
             <Button
               disabled={loading}

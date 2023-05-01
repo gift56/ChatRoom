@@ -109,7 +109,7 @@ const Chat = ({ show, setShow }) => {
   if (!data?.user?.photoURL)
     return (
       <div
-        className={`w-full lg:h-screen items-center justify-center flex-col gap-4 fixed  top-[110px] h-[90vh] bg-[#ecf0f1] dark:bg-darkBg lg:relative lg:top-0 ${
+        className={`w-full lg:h-screen items-center justify-center flex-col gap-4 fixed  top-[110px] h-[90vh] bg-[#ecf0f1] dark:bg-darkBg lg:relative lg:top-0 transition-[background-color] duration-300 ${
           show ? "hidden" : "flex"
         }`}
       >
@@ -134,10 +134,10 @@ const Chat = ({ show, setShow }) => {
         show ? "right-0" : "right-[-100%]"
       }`}
     >
-      <div className="flex w-full items-center justify-between gap-4 bg-white dark:bg-slate-800 shadow-sm h-14 px-5 flex-none">
+      <div className="flex w-full items-center justify-between gap-4 bg-white dark:bg-slate-800 shadow-sm h-14 px-5 flex-none transition-all duration-300">
         <div className="flex items-center justify-start gap-2">
           <span onClick={() => setShow(false)} className="lg:hidden">
-            <MdArrowBack className="text-gray-500 dark:text-white" size={20} />
+            <MdArrowBack className="text-gray-500 dark:text-white transition-all duration-300" size={20} />
           </span>
           {data?.user?.photoURL && (
             <img
@@ -183,11 +183,11 @@ const Chat = ({ show, setShow }) => {
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="Send a message..."
-          className="bg-white dark:bg-transparent dark:text-white dark:placeholder:text-white  h-[40px] w-full outline-none text-base text-gray-500 placeholder:text-gray-500"
+          className="bg-white dark:bg-transparent dark:text-white dark:placeholder:text-white  h-[40px] w-full outline-none text-base text-gray-500 placeholder:text-gray-500 transition-all duration-300"
         />
         <div className="flex items-center gap-3 justify-end">
           <span>
-            <IoMdAttach size={23} className="text-gray-500 dark:text-white" />
+            <IoMdAttach size={23} className="text-gray-500 dark:text-white transition-all duration-300" />
           </span>
           <div>
             <CustomizeInput
