@@ -150,7 +150,7 @@ const Chat = ({ show, setShow }) => {
             {data?.user?.displayName}
           </h4>
         </div>
-        <div className="flex items-center justify-end gap-4">
+        <div className="flex items-center justify-end gap-4 relative">
           <span>
             <BsCameraVideoFill
               size={18}
