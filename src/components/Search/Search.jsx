@@ -93,11 +93,11 @@ const Search = ({ setOpenChat }) => {
           onChange={(e) => setUsername(e.target.value)}
           onKeyDown={handleKey}
           placeholder="Search users"
-          className="bg-white h-[40px] w-full focus:border-primary outline-none text-base text-gray-500 placeholder:text-gray-500"
+          className="bg-white dark:bg-transparent dark:text-white dark:placeholder:text-white h-[40px] w-full focus:border-primary outline-none text-base text-gray-500 placeholder:text-gray-500"
         />
         <span
           onClick={() => handleSearch()}
-          className="cursor-pointer text-gray-500"
+          className="cursor-pointer text-gray-500 dark:text-white"
         >
           <FiSearch size={18} />
         </span>
