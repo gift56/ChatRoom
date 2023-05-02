@@ -1,8 +1,8 @@
 ## This is the official codebase for Lendsqr project
 
-Open [Chat Connect]() to preview the complete projects.
+Open [Chat Connect](https://chat-connect-beta.vercel.app/) to preview the complete projects.
 
-
+<img src="public/screen.png" width="800">
 
 
 # Getting Started with Create React App
