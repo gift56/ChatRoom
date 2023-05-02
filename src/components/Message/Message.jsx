@@ -33,7 +33,7 @@ const Message = ({ chat }) => {
           className={`w-full p-4 flex flex-col gap-2  ${
             chat.senderId === user.uid
               ? "rounded-tl-xl rounded-bl-xl rounded-br-xl items-end justify-end bg-primary text-white"
-              : "rounded-tr-xl rounded-bl-xl rounded-br-xl bg-white/70 bg-slate-800"
+              : "rounded-tr-xl rounded-bl-xl rounded-br-xl bg-white/70 dark:bg-slate-700"
           }`}
         >
           <p className="w-full">{chat.text}</p>

@@ -47,10 +47,10 @@ const Chats = ({ setOpenChat }) => {
               />
             </div>
             <div className="w-[80%] flex flex-col justify-start items-start">
-              <h4 className="text-base font-normal">
+              <h4 className="text-base font-medium">
                 {chat[1].userInfo.displayName}
               </h4>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-500 dark:text-gray-400">
                 {chat[1].lastMessage?.text}
               </p>
             </div>
