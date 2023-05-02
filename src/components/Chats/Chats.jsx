@@ -27,7 +27,7 @@ const Chats = ({ setOpenChat }) => {
   };
 
   return (
-    <div className="w-full h-[450px] overflow-y-auto overflow-x-hidden chats">
+    <div className="w-full h-[450px] overflow-y-auto overflow-x-hidden">
       {Object.entries(chats)
         ?.sort((a, b) => b[1].date - a[1].date)
         .map((chat) => (

@@ -19,7 +19,7 @@ const DeleteModal = ({ show, setShow, handleLogout }) => {
 
   return (
     <div
-      className={`fixed top-0 right-0 w-full h-full bg-[#00000085] z-40 place-items-center flex justify-center transition-all duration-500 ${
+      className={`fixed top-0 right-0 w-full h-full bg-[#00000085] z-[100] place-items-center flex justify-center transition-all duration-500 ${
         show ? "flex" : "hidden"
       }`}
     >
