@@ -91,7 +91,7 @@ const Login = () => {
             <Button
               disabled={loading}
               type="submit"
-              text="Create Account"
+              text="Sign In"
               className="mt-4 w-full h-[44px] bg-primary text-white disabled:bg-primary/70"
             />
             <p className="text-gray-400 font-normal text-sm md:text-base text-center w-full mt-2">
